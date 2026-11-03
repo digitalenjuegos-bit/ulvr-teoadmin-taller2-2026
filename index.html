@@ -344,6 +344,8 @@
  </div>
 </div>
 
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
 <script>
 /* ============================================================
  BANCO DE 38 PREGUNTAS — TEORÍA DE LA ADMINISTRACIÓN (SEMANA 2)
@@ -359,7 +361,7 @@ const QUESTION_BANK = [
    "Definir metas, estrategias y planes para guiar la organización.",
    "Organizar la estructura y asignar recursos.",
    "Motivar, liderar y comunicar a los colaboradores durante la operación.",
-   "Medir resultados, compararlos con las metas y corregir las desviaciones."
+   "Medir resultados, compararlos con las metas y corregir las desviaciones.",
   ],
   answer: 0,
   explanation: "Planear implica establecer metas, definir estrategias y elaborar planes para coordinar las actividades. Organizar, dirigir y controlar son las otras funciones del proceso administrativo."
@@ -373,7 +375,7 @@ const QUESTION_BANK = [
    "Organizar, porque diseña la estructura y asigna responsabilidades.",
    "Planear, porque fija las metas que deben cumplirse.",
    "Dirigir, porque guía a las personas en el cumplimiento de sus funciones.",
-   "Controlar, porque verifica que cada área cumpla sus objetivos."
+   "Controlar, porque verifica que cada área cumpla sus objetivos.",
   ],
   answer: 0,
   explanation: "Organizar es la función que determina la estructura, asigna tareas, delega autoridad y coordina recursos para que el trabajo se realice."
@@ -387,7 +389,7 @@ const QUESTION_BANK = [
    "Motivar, liderar y comunicar a los colaboradores para ejecutar el plan.",
    "Medir el desempeño, aplicar sanciones y corregir desviaciones de las metas.",
    "Diseñar la estructura organizacional y definir los puestos de trabajo.",
-   "Establecer objetivos a largo plazo y preparar los presupuestos anuales."
+   "Establecer objetivos a largo plazo y preparar los presupuestos anuales.",
   ],
   answer: 0,
   explanation: "Dirigir implica motivar, liderar, comunicar y orientar a las personas para que trabajen hacia el cumplimiento de los objetivos."
@@ -401,7 +403,7 @@ const QUESTION_BANK = [
    "Controlar, porque evalúa resultados y corrige desviaciones.",
    "Planear, porque define los estándares que se usarán en la comparación.",
    "Organizar, porque asigna responsables para cada indicador.",
-   "Dirigir, porque comunica a los empleados los errores detectados."
+   "Dirigir, porque comunica a los empleados los errores detectados.",
   ],
   answer: 0,
   explanation: "Controlar consiste en medir el desempeño, compararlo con los estándares y corregir las desviaciones para que la organización cumpla sus metas."
@@ -415,7 +417,7 @@ const QUESTION_BANK = [
    "Planear, organizar, dirigir y controlar.",
    "Organizar primero, planear, controlar y dirigir.",
    "Dirigir, organizar y planear.",
-   "Controlar, dirigir, planear y organizar el proceso."
+   "Controlar, dirigir, planear y organizar el proceso.",
   ],
   answer: 0,
   explanation: "El orden clásico del proceso administrativo es planear primero, luego organizar los recursos, dirigir a las personas y finalmente controlar los resultados."
@@ -429,7 +431,7 @@ const QUESTION_BANK = [
    "Planear, porque fija una meta y diseña una estrategia.",
    "Organizar, porque asigna recursos a la campaña de ventas.",
    "Dirigir, porque motiva al equipo de ventas.",
-   "Controlar, porque revisa si se alcanzó el incremento."
+   "Controlar, porque revisa si se alcanzó el incremento.",
   ],
   answer: 0,
   explanation: "Fijar metas y diseñar estrategias o planes para alcanzarlas es la función de planear. La organización, dirección y control vienen después."
@@ -443,7 +445,7 @@ const QUESTION_BANK = [
    "Controlar, porque mide, compara y corrige el desempeño.",
    "Planear, porque define nuevos turnos para el siguiente mes.",
    "Organizar, porque cambia la asignación de personal.",
-   "Dirigir, porque comunica a los trabajadores el ajuste."
+   "Dirigir, porque comunica a los trabajadores el ajuste.",
   ],
   answer: 0,
   explanation: "Medir la producción real, compararla con la meta y tomar acciones correctivas es la función de controlar."
@@ -457,7 +459,7 @@ const QUESTION_BANK = [
    "Dirigir, porque comunica, motiva y mantiene el compromiso.",
    "Planear, porque define el objetivo del proyecto.",
    "Organizar, porque forma el equipo de trabajo.",
-   "Controlar, porque verifica que el equipo entienda el proyecto."
+   "Controlar, porque verifica que el equipo entienda el proyecto.",
   ],
   answer: 0,
   explanation: "Comunicar, motivar y mantener el compromiso del equipo son acciones propias de la función de dirigir."
@@ -471,7 +473,7 @@ const QUESTION_BANK = [
    "Toma decisiones estratégicas y sus habilidades conceptuales pesan más.",
    "Supervisa directamente a los operarios de la línea de producción diaria.",
    "Se especializa en tareas técnicas concretas del día a día.",
-   "No necesita habilidades humanas porque no contacta con empleados."
+   "No necesita habilidades humanas porque no contacta con empleados.",
   ],
   answer: 0,
   explanation: "La alta dirección se encarga de la visión estratégica y requiere más habilidades conceptuales, aunque también necesita habilidades humanas y técnicas."
@@ -485,7 +487,7 @@ const QUESTION_BANK = [
    "Habilidades técnicas, porque supervisan operaciones concretas.",
    "Habilidades conceptuales, porque definen la misión.",
    "Habilidades políticas, porque negocian con proveedores externos.",
-   "Habilidades financieras exclusivas, porque controlan los presupuestos."
+   "Habilidades financieras exclusivas, porque controlan los presupuestos.",
   ],
   answer: 0,
   explanation: "La primera línea está en contacto directo con operarios y procesos, por lo que las habilidades técnicas son las más importantes."
@@ -496,12 +498,12 @@ const QUESTION_BANK = [
   syllabus: "Katz",
   question: "Las habilidades humanas de un gerente se refieren a su capacidad para:",
   options: [
+   "Elaborar presupuestos y estados financieros detallados.",
    "Trabajar con personas, comunicarse y motivar al equipo de trabajo.",
    "Usar herramientas, máquinas y métodos específicos del trabajo.",
    "Analizar situaciones complejas y ver a la organización como un todo.",
-   "Elaborar presupuestos y estados financieros detallados."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "Las habilidades humanas implican interactuar, comunicarse, liderar y motivar a otros. Son importantes en todos los niveles jerárquicos."
  },
  {
@@ -510,12 +512,12 @@ const QUESTION_BANK = [
   syllabus: "Katz",
   question: "Un gerente que analiza las tendencias del mercado, anticipa cambios y redefine la estrategia de la empresa está usando principalmente:",
   options: [
+   "Habilidades de control, porque verifica el cumplimiento de planes.",
    "Habilidades conceptuales, porque visualiza el conjunto y planifica.",
    "Habilidades técnicas, porque domina a fondo un área operativa específica.",
    "Habilidades humanas, porque consulta a su equipo antes de decidir.",
-   "Habilidades de control, porque verifica el cumplimiento de planes."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "Las habilidades conceptuales permiten ver la organización en su conjunto, analizar contextos complejos y tomar decisiones estratégicas."
  },
  {
@@ -524,12 +526,12 @@ const QUESTION_BANK = [
   syllabus: "Katz",
   question: "¿Cómo varía la importancia relativa de las habilidades conceptuales a medida que se asciende en la jerarquía organizacional?",
   options: [
+   "Desaparece, porque solo importan las habilidades humanas en la cúspide.",
    "Aumenta, porque la alta dirección debe pensar estratégicamente.",
    "Disminuye, porque los altos cargos ya no necesitan planificar.",
    "Se mantiene igual en todos los niveles de la organización.",
-   "Desaparece, porque solo importan las habilidades humanas en la cúspide."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "Las habilidades conceptuales se vuelven más importantes en la alta dirección, mientras que las técnicas son más relevantes en la primera línea."
  },
  {
@@ -538,12 +540,12 @@ const QUESTION_BANK = [
   syllabus: "Katz",
   question: "Un ingeniero de planta que corrige un fallo en una máquina y enseña al operario el procedimiento adecuado está aplicando principalmente:",
   options: [
+   "Habilidades financieras, porque reduce los costos de mantenimiento.",
    "Habilidades técnicas, porque domina el conocimiento especializado.",
    "Habilidades conceptuales, porque entiende toda la cadena de producción.",
    "Habilidades humanas, porque enseña al operario con paciencia.",
-   "Habilidades financieras, porque reduce los costos de mantenimiento."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "Las habilidades técnicas son el conocimiento especializado sobre herramientas, técnicas, equipos y procesos específicos del trabajo."
  },
  {
@@ -552,12 +554,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "El gerente que preside una reunión ceremonial, recibe a delegados externos o representa a la empresa en actos públicos está cumpliendo el rol interpersonal de:",
   options: [
+   "Vocero, porque transmite información hacia el exterior.",
    "Representante, porque actúa como figura simbólica externa.",
    "Líder, porque motiva, dirige y evalúa a su equipo de trabajo.",
    "Enlace, porque conecta distintas áreas de la empresa.",
-   "Vocero, porque transmite información hacia el exterior."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "El rol de representante es el que cumple el gerente cuando actúa como figura simbólica o ceremonial de la organización ante agentes externos."
  },
  {
@@ -566,12 +568,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "Dentro de los roles interpersonales de Mintzberg, el rol de líder se manifiesta cuando el gerente:",
   options: [
+   "Negocia acuerdos con proveedores y sindicatos.",
    "Motiva, capacita y orienta a los miembros de su equipo.",
    "Recopila información interna y externa para detectar problemas.",
    "Asigna recursos entre distintos proyectos de la organización.",
-   "Negocia acuerdos con proveedores y sindicatos."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "El rol de líder implica motivar, dirigir, capacitar y evaluar a los subordinados. Es el rol interpersonal más visible en la gestión diaria."
  },
  {
@@ -580,12 +582,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "El gerente que busca constantemente información sobre la competencia, el mercado y el ambiente interno está ejerciendo el rol informativo de:",
   options: [
+   "Emprendedor, porque inicia proyectos de mejora organizacional.",
    "Monitor en este contexto según la teoría según el modelo.",
    "Difusor, porque transmite datos hacia los subordinados.",
    "Vocero, porque comunica noticias hacia el exterior.",
-   "Emprendedor, porque inicia proyectos de mejora organizacional."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "El monitor recopila información interna y externa para entender la organización y su entorno. Difusor y vocero son roles informativos de transmisión."
  },
  {
@@ -594,12 +596,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "Cuando un gerente reúne a su equipo para comunicar una nueva política de la empresa, está actuando como:",
   options: [
+   "Enlace, porque conecta a su equipo con otras áreas.",
    "Difusor en este contexto según el modelo según la teoría.",
    "Monitor, porque recopila la información antes de compartirla.",
    "Vocero, porque habla en nombre de la empresa ante el público.",
-   "Enlace, porque conecta a su equipo con otras áreas."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "El difusor transmite información recibida de la alta dirección o del entorno hacia los miembros de su área."
  },
  {
@@ -608,12 +610,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "Un gerente que decide invertir en nuevo equipo tecnológico para mejorar la productividad está cumpliendo el rol decisorio de:",
   options: [
+   "Negociador, porque discute precios con el proveedor.",
    "Emprendedor, porque inicia cambios y proyectos de mejora.",
    "Manejador de problemas, porque reacciona ante una crisis inesperada.",
    "Asignador de recursos, porque distribuye el presupuesto.",
-   "Negociador, porque discute precios con el proveedor."
   ],
-  answer: 0,
+  answer: 1,
   explanation: "El rol de emprendedor implica identificar oportunidades e iniciar proyectos de cambio o mejora en la organización."
  },
  {
@@ -622,12 +624,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "El gerente que interviene para resolver un conflicto laboral inesperado que amenaza la operación está actuando como:",
   options: [
+   "Asignador de recursos, porque redistribuye el personal.",
+   "Representante, porque simboliza la autoridad de la empresa.",
    "Manejador de problemas en este contexto según el modelo.",
    "Emprendedor, porque busca mejorar las relaciones laborales.",
-   "Asignador de recursos, porque redistribuye el personal.",
-   "Representante, porque simboliza la autoridad de la empresa."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "El manejador de problemas reacciona ante conflictos, crisis o perturbaciones inesperadas para restaurar el orden."
  },
  {
@@ -636,12 +638,12 @@ const QUESTION_BANK = [
   syllabus: "Mintzberg",
   question: "Decidir cómo distribuir el presupuesto anual entre marketing, producción y tecnología corresponde al rol decisorio de:",
   options: [
+   "Emprendedor, porque decide inversiones estratégicas.",
+   "Monitor, porque analiza la información financiera disponible.",
    "Asignador de recursos, porque distribuye recursos entre áreas.",
    "Negociador, porque distintas áreas compiten activamente por el presupuesto.",
-   "Emprendedor, porque decide inversiones estratégicas.",
-   "Monitor, porque analiza la información financiera disponible."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "El asignador de recursos distribuye recursos financieros, humanos, materiales y de tiempo entre las distintas áreas o proyectos."
  },
  {
@@ -650,12 +652,12 @@ const QUESTION_BANK = [
   syllabus: "Lewin",
   question: "En el estilo autocrático de Lewin, las decisiones principales las toma:",
   options: [
+   "Cada miembro decide por su cuenta.",
+   "Un comité externo contratado por la organización.",
    "El líder, sin consultar al equipo de trabajo.",
    "El equipo, mediante discusión y consenso grupal.",
-   "Cada miembro decide por su cuenta.",
-   "Un comité externo contratado por la organización."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "El estilo autocrático centraliza la decisión en el líder, quien decide sin participación del equipo."
  },
  {
@@ -664,12 +666,12 @@ const QUESTION_BANK = [
   syllabus: "Lewin",
   question: "El estilo democrático de Lewin se caracteriza porque:",
   options: [
+   "Cada persona trabaja sola sin coordinación con los demás.",
+   "No hay objetivos claros y cada uno decide su propio ritmo.",
    "El equipo participa en la discusión y toma la decisión final.",
    "El líder impone las decisiones sin explicar los motivos al grupo.",
-   "Cada persona trabaja sola sin coordinación con los demás.",
-   "No hay objetivos claros y cada uno decide su propio ritmo."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "El estilo democrático fomenta la participación del equipo en la discusión y toma de decisiones, aunque el líder puede retener la decisión final."
  },
  {
@@ -678,12 +680,12 @@ const QUESTION_BANK = [
   syllabus: "Lewin",
   question: "Un líder que otorga libertad total al grupo, interviene poco y no define objetivos claros está aplicando el estilo:",
   options: [
+   "Autocrático, porque permite que cada uno actúe libremente.",
+   "Situacional, porque se adapta a la madurez del grupo de trabajo.",
    "Laissez-faire en este contexto según la teoría según el modelo.",
    "Democrático, porque confía en la participación grupal.",
-   "Autocrático, porque permite que cada uno actúe libremente.",
-   "Situacional, porque se adapta a la madurez del grupo de trabajo."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "El estilo laissez-faire ofrece gran libertad al grupo, con mínima intervención del líder. Puede generar falta de dirección si no se gestiona bien."
  },
  {
@@ -692,12 +694,12 @@ const QUESTION_BANK = [
   syllabus: "Lewin",
   question: "Según los estudios de Lewin en Iowa, ¿cuál estilo gerencial generó mayor satisfacción en el grupo?",
   options: [
+   "El laissez-faire, porque la ausencia de control fue valorada.",
+   "Ninguno, porque todos produjeron igual satisfacción.",
    "Autocrático, porque la urgencia exige decisiones rápidas.",
    "El autocrático, porque la claridad de la autoridad reduce la ansiedad.",
-   "El laissez-faire, porque la ausencia de control fue valorada.",
-   "Ninguno, porque todos produjeron igual satisfacción."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "Los estudios de Lewin mostraron que el estilo democrático generó mayor satisfacción grupal que el autocrático y el laissez-faire."
  },
  {
@@ -706,12 +708,12 @@ const QUESTION_BANK = [
   syllabus: "Lewin",
   question: "Un jefe de emergencias médicas que da órdenes precisas y rápidas durante un accidente está usando un estilo:",
   options: [
+   "Laissez-faire, porque confía en la experiencia médica.",
+   "Participativo, porque todos aportan ideas durante la emergencia.",
    "Autocrático, porque la urgencia exige decisiones rápidas.",
    "Democrático, porque consulta a su equipo en tiempo real.",
-   "Laissez-faire, porque confía en la experiencia médica.",
-   "Participativo, porque todos aportan ideas durante la emergencia."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "En situaciones de urgencia o alto riesgo, el estilo autocrático permite decisiones rápidas y coordinadas, aunque no sea el más satisfactorio."
  },
  {
@@ -720,12 +722,12 @@ const QUESTION_BANK = [
   syllabus: "Lewin",
   question: "Un líder de proyecto creativo que convoca reuniones para elegir juntos la mejor propuesta está usando un estilo:",
   options: [
+   "Laissez-faire, porque no impone una solución previa al grupo.",
+   "Técnico, porque se centra en los detalles del proyecto actual.",
    "Democrático, porque promueve la participación del equipo.",
    "Autocrático, porque define quién asiste a las reuniones.",
-   "Laissez-faire, porque no impone una solución previa al grupo.",
-   "Técnico, porque se centra en los detalles del proyecto actual."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "Convocar al equipo para discutir y elegir propuestas es característico del estilo democrático, que valora la participación."
  },
  {
@@ -734,12 +736,12 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "La rejilla gerencial de Blake y Mouton contrasta dos preocupaciones del líder: el interés por la producción y el interés por:",
   options: [
+   "Las ganancias, porque el objetivo principal es la rentabilidad.",
+   "La estructura, porque la organización determina el liderazgo.",
    "Las personas, porque ambas dimensiones definen el estilo.",
    "Los procesos, porque la eficiencia operativa es central.",
-   "Las ganancias, porque el objetivo principal es la rentabilidad.",
-   "La estructura, porque la organización determina el liderazgo."
   ],
-  answer: 0,
+  answer: 2,
   explanation: "La rejilla gerencial mide el interés por la producción en el eje horizontal y el interés por las personas en el eje vertical."
  },
  {
@@ -748,12 +750,12 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "Según Blake y Mouton, el estilo 9,9 (Equipo) es considerado el mejor porque:",
   options: [
-   "Integra alto interés por la producción y alto interés por las personas.",
    "Prioriza las personas por encima de cualquier resultado en este contexto.",
    "Centra toda la atención en la producción sin importar el equipo.",
-   "Evita conflictos manteniendo un equilibrio moderado entre ambos ejes."
+   "Evita conflictos manteniendo un equilibrio moderado entre ambos ejes.",
+   "Integra alto interés por la producción y alto interés por las personas.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "El estilo 9,9 combina alto interés por la producción con alto interés por las personas, logrando compromiso y resultados."
  },
  {
@@ -762,12 +764,12 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "El estilo 1,9 de la rejilla gerencial, llamado Club campestre, se caracteriza por:",
   options: [
-   "Alto interés por las personas y bajo interés por la producción.",
    "Alto interés por la producción y bajo interés por las personas.",
    "Bajo interés en ambas dimensiones en este contexto.",
-   "Equilibrio moderado entre personas y producción en este contexto."
+   "Equilibrio moderado entre personas y producción en este contexto.",
+   "Alto interés por las personas y bajo interés por la producción.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "El estilo 1,9 prioriza el ambiente laboral y el bienestar del equipo, pero descuida la producción."
  },
  {
@@ -776,12 +778,12 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "El estilo 9,1 de la rejilla gerencial, llamado Tarea, se distingue porque:",
   options: [
-   "Prioriza la producción por encima del bienestar de las personas.",
    "Prioriza las personas por encima de los resultados en este contexto.",
    "No se preocupa ni por las personas ni por la producción.",
-   "Busca un compromiso intermedio entre ambas dimensiones."
+   "Busca un compromiso intermedio entre ambas dimensiones.",
+   "Prioriza la producción por encima del bienestar de las personas.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "El estilo 9,1 o Tarea enfoca toda su atención en la producción y los resultados, con poca consideración por las personas."
  },
  {
@@ -790,12 +792,12 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "El estilo 5,5 de la rejilla gerencial, llamado Medio camino, representa:",
   options: [
-   "Un equilibrio moderado entre el interés por la producción y las personas.",
    "La máxima preocupación simultánea por la producción y las personas en este contexto.",
    "La ausencia total de preocupación por la producción y las personas.",
-   "Un estilo que solo funciona en organizaciones pequeñas en este contexto."
+   "Un estilo que solo funciona en organizaciones pequeñas en este contexto.",
+   "Un equilibrio moderado entre el interés por la producción y las personas.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "El estilo 5,5 busca un balance intermedio: ni destaca en producción ni en personas, evitando extremos."
  },
  {
@@ -804,12 +806,12 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "El estilo 1,1 de la rejilla gerencial, llamado Empobrecido, se define por:",
   options: [
-   "No puede ni quiere la tarea, por lo que necesita instrucciones claras.",
    "No puede pero quiere, por lo que requiere apoyo y persuasión del líder.",
    "Puede pero no quiere, por lo que necesita participación.",
-   "Puede y quiere, por lo que se le puede delegar la tarea."
+   "Puede y quiere, por lo que se le puede delegar la tarea.",
+   "No puede ni quiere la tarea, por lo que necesita instrucciones claras.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "El estilo 1,1 o Empobrecido muestra escaso compromiso con la producción y con las personas, representando un liderazgo mínimo."
  },
  {
@@ -818,12 +820,12 @@ const QUESTION_BANK = [
   syllabus: "Hersey y Blanchard",
   question: "En el liderazgo situacional de Hersey y Blanchard, el estilo E1 (Dirigir) es adecuado cuando el colaborador es:",
   options: [
-   "No puede ni quiere realizar la tarea en este contexto.",
    "No puede pero quiere, por lo que necesita apoyo y persuasión.",
    "Puede pero no quiere, por lo que necesita participación.",
-   "Puede y quiere, por lo que se le puede delegar."
+   "Puede y quiere, por lo que se le puede delegar.",
+   "No puede ni quiere realizar la tarea en este contexto.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "E1 Dirigir corresponde a R1: colaboradores que no pueden ni quieren, que requieren orientación directa y supervisión alta."
  },
  {
@@ -832,12 +834,12 @@ const QUESTION_BANK = [
   syllabus: "Hersey y Blanchard",
   question: "El estilo E2 (Persuadir) se aplica cuando el colaborador:",
   options: [
-   "No puede pero quiere, por lo que el líder debe orientar y motivar.",
    "No puede ni quiere, por lo que necesita órdenes estrictas.",
    "Puede pero no quiere, por lo que el líder debe compartir decisiones.",
-   "Puede y quiere, por lo que el líder solo supervisa resultados."
+   "Puede y quiere, por lo que el líder solo supervisa resultados.",
+   "No puede pero quiere, por lo que el líder debe orientar y motivar.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "E2 Persuadir se usa con R2: personas con voluntad pero sin habilidad suficiente, que necesitan dirección y apoyo."
  },
  {
@@ -846,12 +848,12 @@ const QUESTION_BANK = [
   syllabus: "Hersey y Blanchard",
   question: "El estilo E3 (Participar) es el más adecuado cuando el colaborador:",
   options: [
-   "Puede realizar la tarea pero no quiere en este contexto según el modelo.",
    "No puede pero quiere aprender, por lo que requiere entrenamiento directo.",
    "No puede ni quiere, por lo que el líder debe controlar cada paso.",
-   "Puede y quiere, por lo que el líder le transfiere toda la responsabilidad."
+   "Puede y quiere, por lo que el líder le transfiere toda la responsabilidad.",
+   "Puede realizar la tarea pero no quiere en este contexto según el modelo.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "E3 Participar se aplica a R3: colaboradores con capacidad pero falta de motivación, que responden mejor si se les involucra en las decisiones."
  },
  {
@@ -860,12 +862,12 @@ const QUESTION_BANK = [
   syllabus: "Hersey y Blanchard",
   question: "El estilo E4 (Delegar) se utiliza cuando el colaborador:",
   options: [
-   "Puede y quiere realizar la tarea, por lo que el líder le da autonomía.",
    "No puede ni quiere, por lo que requiere supervisión constante.",
    "No puede pero quiere, por lo que necesita capacitación y motivación.",
-   "Puede pero no quiere, por lo que requiere participación en las decisiones."
+   "Puede pero no quiere, por lo que requiere participación en las decisiones.",
+   "Puede y quiere realizar la tarea, por lo que el líder le da autonomía.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "E4 Delegar corresponde a R4: colaboradores competentes y motivados, a quienes se les puede confiar la tarea con mínima supervisión."
  },
  {
@@ -874,12 +876,12 @@ const QUESTION_BANK = [
   syllabus: "Hersey y Blanchard",
   question: "La idea central del liderazgo situacional es que el gerente debe:",
   options: [
-   "Adaptar su estilo según la madurez y disposición del colaborador.",
    "Siempre usar el estilo democrático para maximizar la satisfacción.",
    "Elegir un solo estilo y mantenerlo con todo el equipo.",
-   "Aplicar el estilo 9,9 de Blake y Mouton en todas las situaciones."
+   "Aplicar el estilo 9,9 de Blake y Mouton en todas las situaciones.",
+   "Adaptar su estilo según la madurez y disposición del colaborador.",
   ],
-  answer: 0,
+  answer: 3,
   explanation: "Hersey y Blanchard sostienen que no existe un estilo único ideal; el líder debe ajustarse al nivel de madurez del seguidor."
  }
 ];
@@ -887,11 +889,24 @@ const STATE = { studentName:"", studentCourse:"", selectedQuestions:[], currentI
 const TOTAL_QUESTIONS = 20;
 const TIME_PER_QUESTION = 30;
 
-// === API CONFIG (Railway backend) ===
-const EXAM_ID = 'ulvr-teoadmin-taller2-2026';
-const API_BASE = 'https://evaluador-ensayos-production.up.railway.app/api/quiz/' + EXAM_ID;
+// === FIREBASE CONFIG ===
+const firebaseConfig = {
+  apiKey: "AIzaSyD-iRwZ9AUya0F7tkU4uQUWE7eJbgeFZwM",
+  authDomain: "coevaluacionhistoria.firebaseapp.com",
+  databaseURL: "https://coevaluacionhistoria-default-rtdb.firebaseio.com",
+  projectId: "coevaluacionhistoria",
+  storageBucket: "coevaluacionhistoria.firebasestorage.app",
+  messagingSenderId: "878859292504",
+  appId: "1:878859292504:web:94a313961d347d1d5cdf2d"
+};
+const DB_ROOT = 'quiz_ulvr_teoadmin_taller2_2026';
 const TEACHER_CODE = 'DOCENTE2026';
 const LS_KEY = 'ulvr_teadmin_taller2_results';
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+
+function normalizeKey(name){ return name.trim().toUpperCase(); }
 
 // === ROSTER POR CURSO ===
 const ROSTER = {
@@ -1012,10 +1027,8 @@ function printPDF() {
 
 async function checkQuizOpen(){
  try{
-  const res = await fetch(API_BASE + '/status', { method:'GET', headers:{'Content-Type':'application/json'} });
-  if(!res.ok) return true; // fail-open
-  const data = await res.json();
-  return data.open !== false;
+  const snap = await db.ref(DB_ROOT + '/config/open').once('value');
+  return snap.val() !== false; // fail-open si no existe o es true
  }catch(e){ return true; } // fail-open
 }
 
@@ -1095,20 +1108,14 @@ function startQuiz(){
 }
 
 async function hasCompletedAttempt(name) {
- const normalized = name.trim().toUpperCase();
+ const normalized = normalizeKey(name);
  try {
-  const res = await fetch(API_BASE + '/grades');
-  if (res.ok) {
-   const grades = await res.json();
-   return (grades || []).some(g => {
-    const gn = String(g.studentName || g.name || '').trim().toUpperCase();
-    return gn === normalized;
-   });
-  }
- } catch(e) { /* API no disponible */ }
+  const snap = await db.ref(DB_ROOT + '/results/' + normalized).once('value');
+  if (snap.exists()) return true;
+ } catch(e) { /* Firebase no disponible */ }
  try {
   const saved = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
-  return saved.some(r => String(r.studentName || '').trim().toUpperCase() === normalized);
+  return saved.some(r => normalizeKey(r.studentName || '') === normalized);
  } catch(e) { return false; }
 }
 
@@ -1253,35 +1260,20 @@ function showResults(){
   endTimestamp: new Date().toISOString(),
   totalDurationSeconds: Math.round((Date.now() - new Date(STATE.startTime).getTime()) / 1000)
  };
- saveResultToAPI(result);
+ saveResultToFirebase(result);
 }
 
-function saveResultToAPI(result) {
- const payload = {
-  name: result.studentName,
-  firstName: result.firstName,
-  lastName: result.lastName,
-  cls: result.course,
-  score: result.score_10,
-  pct: result.pct,
-  correct: result.correct,
-  total: result.total,
-  answers: result.answers,
-  date: result.timestamp,
-  startTimestamp: result.startTimestamp,
-  endTimestamp: result.endTimestamp,
-  totalDurationSeconds: result.totalDurationSeconds
- };
- fetch(API_BASE + '/grades', {
-  method: 'POST',
-  headers: {'Content-Type':'application/json'},
-  body: JSON.stringify(payload)
- }).catch(e => console.warn('API save failed, fallback localStorage:', e));
- try {
-  const saved = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
-  saved.push(result);
-  localStorage.setItem(LS_KEY, JSON.stringify(saved));
- } catch(e) { console.warn('localStorage save failed:', e); }
+function saveResultToFirebase(result) {
+  const normalized = normalizeKey(result.studentName);
+  try {
+    db.ref(DB_ROOT + '/results/' + normalized).set(result)
+      .catch(e => console.warn('Firebase save failed:', e));
+  } catch(e) { console.warn('Firebase save failed:', e); }
+  try {
+    const saved = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+    saved.push(result);
+    localStorage.setItem(LS_KEY, JSON.stringify(saved));
+  } catch(e) { console.warn('localStorage save failed:', e); }
 }
 
 function toggleReview(){
@@ -1318,18 +1310,19 @@ function toggleReview(){
 let teacherRows = [];
 let currentTeacherRows = [];
 
-async function loadResultsFromAPI() {
+async function loadResultsFromFirebase() {
  let localResults = [];
  try { localResults = JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch(e) {}
  try {
-  const res = await fetch(API_BASE + '/grades');
-  if(res.ok){
-   const apiResults = await res.json();
-   const apiNames = new Set(apiResults.map(r => String(r.studentName || r.name || '').trim().toUpperCase()));
-   const localOnly = localResults.filter(r => !apiNames.has(String(r.studentName || '').trim().toUpperCase()));
-   return [...apiResults, ...localOnly];
+  const snap = await db.ref(DB_ROOT + '/results').once('value');
+  if(snap.exists()){
+   const val = snap.val() || {};
+   const fbResults = Object.values(val);
+   const fbNames = new Set(fbResults.map(r => normalizeKey(r.studentName || r.name || '')));
+   const localOnly = localResults.filter(r => !fbNames.has(normalizeKey(r.studentName || '')));
+   return [...fbResults, ...localOnly];
   }
- } catch(e) { console.warn('API load failed, using localStorage:', e); }
+ } catch(e) { console.warn('Firebase load failed, using localStorage:', e); }
  return localResults;
 }
 
@@ -1384,7 +1377,7 @@ function exportResultsCSV(rows) {
 }
 
 async function loadTeacherPanel(){
- const results = await loadResultsFromAPI();
+ const results = await loadResultsFromFirebase();
  teacherRows = results.map(normalizeRow);
  renderTeacherTable(teacherRows);
  populateCourseFilter();
@@ -1409,10 +1402,8 @@ function filterTeacherRows(){
 
 async function getQuizStatus(){
  try{
-  const res = await fetch(API_BASE + '/status');
-  if(!res.ok) return null;
-  const data = await res.json();
-  return data.open !== false;
+  const snap = await db.ref(DB_ROOT + '/config/open').once('value');
+  return snap.val() !== false;
  }catch(e){ return null; }
 }
 
@@ -1427,27 +1418,16 @@ async function updateToggleLabel(){
 
 async function toggleQuizStatus(){
  try{
-  const statusRes = await fetch(API_BASE + '/status');
-  let isOpen = true;
-  if(statusRes.ok){
-   const data = await statusRes.json();
-   isOpen = data.open !== false;
-  }
+  const snap = await db.ref(DB_ROOT + '/config/open').once('value');
+  const isOpen = snap.val() !== false;
   const newOpen = !isOpen;
-  const res = await fetch(API_BASE + '/status', {
-   method: 'POST',
-   headers: {'Content-Type':'application/json'},
-   body: JSON.stringify({open: newOpen})
-  });
-  if(res.ok){
-   await updateToggleLabel();
-   await refreshQuizStatus();
-   showModal('Estado actualizado', newOpen ? 'El taller ahora está abierto.' : 'El taller ahora está cerrado.', 'alert');
-  } else {
-   showModal('Error','No se pudo cambiar el estado del taller.','alert');
-  }
+  await db.ref(DB_ROOT + '/config/open').set(newOpen);
+  await updateToggleLabel();
+  await refreshQuizStatus();
+  showModal('Estado actualizado', newOpen ? 'El taller ahora está abierto.' : 'El taller ahora está cerrado.', 'alert');
  }catch(e){
-  showModal('Error','No se pudo contactar al servidor.','alert');
+  console.error(e);
+  showModal('Error','No se pudo cambiar el estado del taller.','alert');
  }
 }
 
@@ -1522,20 +1502,16 @@ document.addEventListener('DOMContentLoaded', function(){
  document.getElementById('tpCourseFilter').addEventListener('change', filterTeacherRows);
  document.getElementById('tpSearch').addEventListener('input', filterTeacherRows);
 
- document.getElementById('tpClear').addEventListener('click', async () => {
-  showModal('Limpiar notas','¿Borrar TODAS las notas? Esta acción no se puede deshacer.','confirm', async () => {
-   localStorage.removeItem(LS_KEY);
-   try{
-    await fetch(API_BASE + '/clear', {
-     method: 'POST',
-     headers: {'Content-Type':'application/json'},
-     body: JSON.stringify({action: 'clear_all', examId: EXAM_ID})
-    });
-   }catch(e){ console.warn('API clear failed:', e); }
-   await loadTeacherPanel();
-   document.getElementById('tpResults').innerHTML = '<div class="tp-empty">Notas borradas.</div>';
+  document.getElementById('tpClear').addEventListener('click', async () => {
+   showModal('Limpiar notas','¿Borrar TODAS las notas? Esta acción no se puede deshacer.','confirm', async () => {
+    localStorage.removeItem(LS_KEY);
+    try{
+     await db.ref(DB_ROOT + '/results').remove();
+    }catch(e){ console.warn('Firebase clear failed:', e); }
+    await loadTeacherPanel();
+    document.getElementById('tpResults').innerHTML = '<div class="tp-empty">Notas borradas.</div>';
+   });
   });
- });
 
  // Verificar estado del quiz al cargar
  refreshQuizStatus();
