@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller #2 — Proceso administrativo y estilos gerenciales | ULVR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<style>
+ :root{
+ --bg:#f3ebd9; --bg-2:#e8dcc2; --paper:#fbf6ea; --ink:#1c2b27; --ink-soft:#3a4a44;
+ --muted:#7a7264; --gold:#b8842a; --gold-bright:#d9a23e; --forest:#1f4a3d;
+ --forest-deep:#0f2a23; --sage:#5d8a6b; --error:#b5453a; --error-soft:#e8c4be;
+ --ok:#3d7a4f; --ok-soft:#c5dcb8; --border:#cdbf9d; --shadow:0 18px 50px -20px rgba(28,43,39,.35);
+ }
+ *{box-sizing:border-box;margin:0;padding:0}
+ html,body{height:100%}
+ body{font-family:'Outfit',sans-serif;color:var(--ink);background:var(--bg);
+ background-image:radial-gradient(circle at 12% 18%, rgba(184,132,42,.10), transparent 45%),radial-gradient(circle at 88% 82%, rgba(31,74,61,.12), transparent 50%);min-height:100vh;overflow-x:hidden;line-height:1.55}
+ body::before{content:"";position:fixed;inset:0;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.05 0 0 0 0.04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");opacity:.5;pointer-events:none;z-index:0;mix-blend-mode:multiply}
+ .container{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:32px 24px 80px}
+ .brand{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+ .brand-left{display:flex;align-items:center;gap:14px}
+ .brand-mark{width:46px;height:46px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--gold-bright), var(--gold) 70%, #6b4a16);display:grid;place-items:center;color:#fbf6ea;font-family:'Fraunces',serif;font-weight:900;font-size:20px;box-shadow:0 6px 18px -6px rgba(184,132,42,.55), inset 0 -3px 8px rgba(0,0,0,.2)}
+ .brand-text{font-family:'Fraunces',serif;line-height:1.1}
+ .brand-text.t1{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);font-family:'Outfit',sans-serif;font-weight:500}
+ .brand-text.t2{font-size:20px;font-weight:700;color:var(--forest-deep)}
+ .brand-right{font-size:12px;color:var(--muted);text-align:right;font-family:'Outfit',sans-serif;letter-spacing:.05em}
+ .brand-right strong{color:var(--forest);font-weight:600}
+ .screen{display:none;animation:fadeUp .55s cubic-bezier(.2,.7,.2,1) both}
+ .screen.active{display:block}
+ @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+ .welcome-card{background:var(--paper);border:1px solid var(--border);border-radius:22px;padding:54px 48px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+ .welcome-card::before{content:"";position:absolute;top:-120px;right:-120px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle, rgba(217,162,62,.25), transparent 70%);pointer-events:none}
+ .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(31,74,61,.08);border:1px solid rgba(31,74,61,.18);color:var(--forest);padding:6px 14px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:24px}
+ .welcome-title{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(34px,5vw,54px);line-height:1.05;color:var(--forest-deep);letter-spacing:-.02em;margin-bottom:18px}
+ .welcome-title em{font-style:italic;color:var(--gold);font-weight:700}
+ .welcome-sub{font-size:17px;color:var(--ink-soft);max-width:640px;margin-bottom:24px}
+ .skills-box{background:rgba(31,74,61,.05);border:1px solid var(--border);border-radius:14px;padding:16px 18px;margin-bottom:36px;max-width:640px}
+ .skills-title{font-size:12px;font-weight:600;color:var(--forest);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+ .skills-list{list-style:none;font-size:14px;color:var(--ink-soft)}
+ .skills-list li{margin-bottom:6px;padding-left:18px;position:relative}
+ .skills-list li::before{content:"\f00c";font-family:"Font Awesome 6 Free";font-weight:900;color:var(--gold);font-size:10px;position:absolute;left:0;top:5px}
+ .welcome-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+ .meta-item{background:rgba(255,255,255,.5);border:1px solid var(--border);border-radius:14px;padding:16px 18px}
+ .meta-item.num{font-family:'Fraunces',serif;font-weight:700;font-size:28px;color:var(--gold);line-height:1}
+ .meta-item.lbl{font-size:13px;color:var(--ink-soft);margin-top:4px}
+ .form-group{margin-bottom:24px}
+ .form-group label{display:block;font-size:14px;font-weight:600;color:var(--forest);margin-bottom:10px}
+ .course-select,.student-select{width:100%;padding:16px 18px;font-family:'Outfit',sans-serif;font-size:17px;color:var(--ink);background:#fff;border:1.5px solid var(--border);border-radius:12px;outline:none;transition:border-color .2s, box-shadow .2s;cursor:pointer;max-width:520px}
+ .course-select:focus,.student-select:focus{border-color:var(--gold);box-shadow:0 0 0 4px rgba(184,132,42,.15)}
+ .course-select:disabled,.student-select:disabled{background:var(--bg-2);color:var(--muted);cursor:not-allowed}
+ .name-error{display:none;align-items:flex-start;gap:8px;background:var(--error-soft);border:1px solid rgba(181,69,58,.35);color:#6d2a22;padding:12px 14px;border-radius:10px;font-size:14px;margin-top:12px;max-width:520px}
+ .name-error.show{display:flex}
+ .closed-banner{display:none;align-items:flex-start;gap:10px;background:rgba(181,69,58,.12);border:1.5px solid rgba(181,69,58,.4);color:#6d2a22;padding:14px 16px;border-radius:12px;font-size:14px;margin-bottom:22px;max-width:640px}
+ .closed-banner.show{display:flex}
+ .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:'Outfit',sans-serif;font-weight:600;font-size:15px;padding:14px 22px;border-radius:12px;border:none;cursor:pointer;transition:background .2s, transform .1s}
+ .btn:active{transform:translateY(1px)}
+ .btn-primary{background:var(--forest);color:#fbf6ea}.btn-primary:hover{background:var(--forest-deep)}
+ .btn-primary:disabled{background:var(--bg-2);color:var(--muted);cursor:not-allowed}
+ .btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--border)}.btn-ghost:hover{background:rgba(31,74,61,.06)}
+ .quiz-header{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+ .student-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(31,74,61,.08);border:1px solid rgba(31,74,61,.18);color:var(--forest);padding:8px 14px;border-radius:999px;font-size:13px}
+ .student-tag span{font-weight:500}.student-tag strong{color:var(--forest-deep)}
+ .progress-wrap{flex:1;min-width:220px;max-width:360px}
+ .progress-bar{height:10px;background:var(--bg-2);border-radius:999px;overflow:hidden}
+ .progress-fill{height:100%;background:linear-gradient(90deg,var(--gold),var(--forest));width:0%;transition:width .3s ease}
+ .progress-text{font-size:13px;color:var(--muted);text-align:right;margin-top:6px}
+ .timer-wrap{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted);margin-bottom:12px}
+ .timer-bar{flex:1;height:6px;background:var(--bg-2);border-radius:999px;overflow:hidden;max-width:200px}
+ .timer-fill{height:100%;background:var(--gold);width:100%;transition:width .1s linear}
+ .timer-fill.warning{background:var(--error)}
+ .timer-text{font-variant-numeric:tabular-nums;font-weight:600}
+ .question-card{background:var(--paper);border:1px solid var(--border);border-radius:22px;padding:38px 34px;box-shadow:var(--shadow);margin-bottom:22px}
+ .q-topic{display:inline-flex;align-items:center;gap:8px;background:rgba(184,132,42,.12);border:1px solid rgba(184,132,42,.35);color:#7a5218;padding:5px 12px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px}
+ .question-text{font-family:'Fraunces',serif;font-size:23px;font-weight:700;color:var(--forest-deep);line-height:1.25;margin-bottom:22px}
+ .options{display:flex;flex-direction:column;gap:12px}
+ .option{display:flex;align-items:flex-start;gap:14px;width:100%;text-align:left;background:#fff;border:1.5px solid var(--border);border-radius:14px;padding:16px 18px;font-size:16px;color:var(--ink);cursor:pointer;transition:border-color .2s, background .2s, transform .1s}
+ .option:hover:not(:disabled){border-color:var(--gold);background:rgba(184,132,42,.06)}
+ .option:disabled{cursor:default}
+ .option.correct{background:var(--ok-soft);border-color:var(--ok);color:#1e3f28}
+ .option.incorrect{background:var(--error-soft);border-color:var(--error);color:#5c211a}
+ .option-letter{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--bg-2);color:var(--forest);display:grid;place-items:center;font-weight:700;font-size:14px}
+ .option.correct .option-letter{background:var(--ok);color:#fff}
+ .option.incorrect .option-letter{background:var(--error);color:#fff}
+ .feedback{display:none;margin-top:18px;padding:18px;border-radius:14px;font-size:15px}
+ .feedback.show{display:block}
+ .feedback.ok{background:var(--ok-soft);border:1px solid var(--ok);color:#1e3f28}
+ .feedback.bad{background:var(--error-soft);border:1px solid var(--error);color:#5c211a}
+ .feedback-head{font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+ .actions{display:flex;justify-content:space-between;gap:14px;margin-top:22px}
+ .results-card{background:var(--paper);border:1px solid var(--border);border-radius:22px;padding:48px 42px;box-shadow:var(--shadow);text-align:center}
+ .results-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(31,74,61,.08);border:1px solid rgba(31,74,61,.18);color:var(--forest);padding:6px 14px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;margin-bottom:18px}
+ .results-name{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:var(--forest-deep);margin-bottom:22px}
+ .score-circle{position:relative;width:220px;height:220px;margin:0 auto 26px}
+ .score-circle svg{transform:rotate(-90deg);width:100%;height:100%}
+ .score-circle circle{fill:none;stroke-width:16;stroke-linecap:round}
+ .score-circle .track{stroke:var(--bg-2)}
+ .score-circle .fill{stroke:url(#scoreGrad);stroke-dasharray:628;stroke-dashoffset:628;transition:stroke-dashoffset 1s cubic-bezier(.2,.7,.2,1)}
+ .score-inner{position:absolute;inset:26px;border-radius:50%;background:#fff;border:2px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center}
+ .score-value{font-family:'Fraunces',serif;font-size:56px;font-weight:900;color:var(--forest-deep);line-height:1}
+ .score-value .slash{font-size:32px;color:var(--muted);margin:0 2px}
+ .score-value .max{font-size:28px;color:var(--muted)}
+ .score-label{font-size:13px;color:var(--muted);margin-top:4px;font-weight:500}
+ .grade-pill{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:999px;font-weight:600;font-size:15px;margin-bottom:26px}
+ .grade-excellent{background:rgba(184,132,42,.18);color:#7a5218;border:1px solid rgba(184,132,42,.4)}
+ .grade-good{background:rgba(61,122,79,.15);color:#1e3f28;border:1px solid rgba(61,122,79,.35)}
+ .grade-fair{background:rgba(184,132,42,.12);color:#7a5218;border:1px solid rgba(184,132,42,.3)}
+ .grade-poor{background:rgba(181,69,58,.12);color:#6d2a22;border:1px solid rgba(181,69,58,.3)}
+ .stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:500px;margin:0 auto 28px}
+ .stat{background:rgba(255,255,255,.5);border:1px solid var(--border);border-radius:14px;padding:18px 14px}
+ .stat-num{font-family:'Fraunces',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1}
+ .stat-lbl{font-size:13px;color:var(--ink-soft);margin-top:4px}
+ .results-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:20px}
+ .review-section{display:none;text-align:left;margin-top:28px;border-top:1px solid var(--border);padding-top:24px}
+ .review-title{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:var(--forest-deep);margin-bottom:16px;display:flex;align-items:center;gap:10px}
+ .review-item{padding:16px 0;border-bottom:1px solid var(--border)}
+ .review-item:last-child{border-bottom:none}
+ .ri-q{font-weight:600;color:var(--forest-deep);margin-bottom:10px;line-height:1.35}
+ .ri-a{font-size:14px;color:var(--ink-soft);line-height:1.5}
+ .badge{display:inline-block;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;margin-right:8px}
+ .badge.ok{background:var(--ok-soft);color:#1e3f28}.badge.bad{background:var(--error-soft);color:#5c211a}
+ .syllabus-tag{display:inline-flex;align-items:center;gap:6px;margin-top:10px;font-size:12px;color:var(--muted);background:rgba(31,74,61,.06);padding:5px 10px;border-radius:6px}
+ .teacher-panel-opener{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;background:var(--forest);color:#fff;border:none;box-shadow:0 6px 20px -6px rgba(15,42,35,.5);cursor:pointer;z-index:999;display:flex;align-items:center;justify-content:center;font-size:16px;opacity:0.6;transition:opacity .2s, transform .2s}
+ .teacher-panel-opener:hover{opacity:1;transform:scale(1.08)}
+ .teacher-panel-opener.active{background:var(--error)}
+ .teacher-panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:none;align-items:flex-start;padding:30px 20px;overflow-y:auto}
+ .teacher-panel-overlay.active{display:flex}
+ .teacher-panel{background:var(--paper);border-radius:20px;max-width:900px;margin:0 auto;width:100%;padding:32px;box-shadow:var(--shadow);position:relative}
+ .teacher-panel h2{font-family:'Fraunces',serif;font-size:24px;color:var(--forest-deep);margin-bottom:18px}
+ .tp-meta{display:flex;gap:14px;margin-bottom:22px;flex-wrap:wrap;align-items:center}
+ .tp-code{font-family:'Outfit',sans-serif;padding:10px 16px;border:1.5px solid var(--border);border-radius:10px;font-size:14px;background:#fff;flex:1;min-width:200px}
+ .tp-btn{font-family:'Outfit',sans-serif;font-weight:600;font-size:14px;padding:10px 18px;border-radius:10px;border:none;cursor:pointer;transition:background .2s;display:inline-flex;align-items:center;gap:8px}
+ .tp-btn-primary{background:var(--forest);color:#fbf6ea}.tp-btn-primary:hover{background:var(--forest-deep)}
+ .tp-btn-danger{background:var(--error);color:#fff}.tp-btn-danger:hover{background:#8a3a2d}
+ .tp-btn-ghost{background:transparent;color:var(--forest);border:1.5px solid var(--border)}.tp-btn-ghost:hover{background:rgba(31,74,61,.06)}
+ .tp-close{position:absolute;top:14px;right:18px;background:none;border:none;font-size:22px;color:var(--muted);cursor:pointer}
+ .tp-results{margin-top:20px}
+ .tp-filter{display:flex;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+ .tp-filter select,.tp-filter input{padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:'Outfit',sans-serif;font-size:14px;background:#fff;min-width:160px}
+ .tp-table{width:100%;border-collapse:collapse;font-size:14px}
+ .tp-table th,.tp-table td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+ .tp-table th{font-weight:600;color:var(--forest);font-size:12px;text-transform:uppercase;letter-spacing:.08em;background:rgba(31,74,61,.06)}
+ .tp-table tr:hover{background:rgba(31,74,61,.04)}
+ .tp-score{font-family:'Fraunces',serif;font-weight:700;font-size:16px;color:var(--gold)}
+ .tp-empty{text-align:center;color:var(--muted);padding:30px;font-style:italic}
+ .modal{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:3000;display:none;align-items:center;justify-content:center;padding:20px}
+ .modal.active{display:flex}
+ .modal-box{background:var(--paper);border-radius:18px;padding:28px 26px;max-width:420px;width:100%;box-shadow:var(--shadow);text-align:center}
+ .modal-title{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:var(--forest-deep);margin-bottom:12px}
+ .modal-text{font-size:15px;color:var(--ink-soft);margin-bottom:22px;line-height:1.5}
+ .modal-actions{display:flex;gap:12px;justify-content:center}
+ @media (max-width:720px){
+  .container{padding:20px 14px 60px}
+  .welcome-card,.results-card{padding:32px 22px}
+  .welcome-meta,.stats-grid{grid-template-columns:1fr;gap:8px}
+  .question-card{padding:26px 22px}
+  .question-text{font-size:19px}
+  .quiz-header{flex-direction:column;align-items:flex-start}
+  .brand-right{display:none}
+  .actions{flex-direction:column-reverse;gap:10px}
+  .actions .btn{width:100%;justify-content:center}
+  .teacher-panel{padding:24px 18px}
+  .tp-table{font-size:12px}
+  .tp-table th,.tp-table td{padding:8px 6px}
+ }
+ @media print{
+  body{background:#fff}
+  body::before{display:none}
+  .brand,.welcome-screen,.quiz-screen,.results-actions,.review-section,.teacher-panel-opener,.teacher-panel-overlay{display:none !important}
+  .results-card{box-shadow:none;border:none;padding:0}
+  .container{max-width:100%;padding:0}
+ }
+</style>
+</head>
+<body>
+
+<div class="container">
+ <header class="brand">
+  <div class="brand-left">
+   <div class="brand-mark">U</div>
+   <div class="brand-text">
+    <div class="t1">Universidad Laica Vicente Rocafuerte</div>
+    <div class="t2">Teoría de la Administración — Semana 2</div>
+   </div>
+  </div>
+  <div class="brand-right"><strong>Periodo B-2026</strong><br>Taller #2</div>
+ </header>
+
+ <section id="welcome-screen" class="screen active">
+  <div class="welcome-card">
+   <span class="eyebrow"><i class="fa-solid fa-briefcase"></i> Taller #2 · Proceso administrativo y estilos gerenciales</span>
+   <h1 class="welcome-title">Proceso administrativo <em>y estilos gerenciales</em></h1>
+   <p class="welcome-sub">Cuestionario de repaso sobre el proceso administrativo PODC, los roles y habilidades del gerente, y los estilos de liderazgo. Selecciona tu curso y tu nombre. Tendrás <strong>30 segundos por pregunta</strong> y <strong>un solo intento</strong>. Al final podrás revisar tus respuestas.</p>
+
+   <div class="skills-box">
+    <div class="skills-title"><i class="fa-solid fa-brain"></i> Contenidos que se evalúan</div>
+    <ul class="skills-list">
+     <li><strong>Proceso administrativo:</strong> planear, organizar, dirigir y controlar según Robbins y Coulter.</li>
+     <li><strong>Gerente:</strong> niveles jerárquicos, habilidades de Katz y roles de Mintzberg.</li>
+     <li><strong>Estilos de liderazgo:</strong> estilos de Iowa, rejilla gerencial de Blake y Mouton, y liderazgo situacional de Hersey y Blanchard.</li>
+    </ul>
+   </div>
+
+   <div class="welcome-meta">
+    <div class="meta-item"><div class="num">20</div><div class="lbl">Preguntas por intento</div></div>
+    <div class="meta-item"><div class="num">38</div><div class="lbl">Banco de preguntas</div></div>
+    <div class="meta-item"><div class="num">30s</div><div class="lbl">Por pregunta</div></div>
+   </div>
+
+   <div id="closedBanner" class="closed-banner">
+    <i class="fa-solid fa-lock"></i>
+    <div><strong>La evaluación está cerrada.</strong> Tu docente debe abrirla desde el panel docente para que puedas comenzar.</div>
+   </div>
+
+   <div class="form-group">
+    <label for="courseSelect">1. Selecciona tu curso</label>
+    <select id="courseSelect" class="course-select">
+     <option value="" disabled selected>— Tu curso —</option>
+     <option value="Marketing">Teoría de la Adm. (Marketing)</option>
+     <option value="Contabilidad y Auditoría">Teoría de la Adm. (Contabilidad y Auditoría)</option>
+     <option value="Comercio Exterior">Teoría de la Adm. (Comercio Exterior)</option>
+    </select>
+   </div>
+
+   <div class="form-group">
+    <label for="studentName">2. Selecciona tu nombre</label>
+    <select id="studentName" class="student-select" disabled>
+     <option value="" disabled selected>— Primero elige tu curso —</option>
+    </select>
+    <div class="name-error" id="nameError"><i class="fa-solid fa-circle-exclamation"></i> Selecciona tu nombre de la lista para comenzar.</div>
+   </div>
+
+   <button class="btn btn-primary" id="startBtn" disabled>Comenzar taller <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+ </section>
+
+ <section id="quiz-screen" class="screen">
+  <div class="quiz-header">
+   <div class="student-tag"><i class="fa-solid fa-user-graduate"></i><span>Estudiante:</span><strong id="studentDisplay">—</strong></div>
+   <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-text"><strong id="qCurrent">1</strong> / <span id="qTotal">20</span></div>
+   </div>
+  </div>
+  <div class="timer-wrap">
+   <i class="fa-solid fa-clock"></i>
+   <div class="timer-bar"><div class="timer-fill" id="timerFill"></div></div>
+   <span class="timer-text" id="timerText">30 s</span>
+  </div>
+  <div class="question-card" id="questionCard"></div>
+  <div class="actions">
+   <button class="btn btn-ghost" id="quitBtn"><i class="fa-solid fa-door-open"></i> Salir</button>
+   <button class="btn btn-primary" id="nextBtn" disabled>Siguiente <i class="fa-solid fa-arrow-right"></i></button>
+  </div>
+ </section>
+
+ <section id="results-screen" class="screen">
+  <div class="results-card">
+   <div class="results-eyebrow">Taller completado</div>
+   <div class="results-name" id="resultsName">—</div>
+   <div class="score-circle">
+    <svg viewBox="0 0 220 220" style="-webkit-print-color-adjust:exact;print-color-adjust:exact">
+     <defs><linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#d4af37"/><stop offset="100%" stop-color="#2d6a4f"/></linearGradient></defs>
+     <circle cx="110" cy="110" r="100" class="track"/>
+     <circle class="fill" id="scoreRing" cx="110" cy="110" r="100"/>
+    </svg>
+    <div class="score-inner">
+     <div class="score-value"><span id="scoreNum">0</span><span class="slash">/</span><span class="max">10</span></div>
+     <div class="score-label">Nota / 10</div>
+    </div>
+   </div>
+   <div class="grade-pill" id="gradePill"></div>
+
+   <div class="stats-grid">
+    <div class="stat"><div class="stat-num" id="statCorrect">0</div><div class="stat-lbl">Correctas</div></div>
+    <div class="stat"><div class="stat-num" id="statWrong">0</div><div class="stat-lbl">Incorrectas</div></div>
+    <div class="stat"><div class="stat-num" id="statPct">0%</div><div class="stat-lbl">Rendimiento</div></div>
+   </div>
+   <div class="results-actions">
+    <button class="btn btn-ghost" id="reviewBtn"><i class="fa-solid fa-list-check"></i> Revisar respuestas</button>
+    <button class="btn btn-ghost" onclick="printPDF()"><i class="fa-solid fa-print"></i> Imprimir / Guardar PDF</button>
+   </div>
+   <p style="font-size:12.5px;color:var(--muted);text-align:center;margin-top:14px;"><i class="fa-solid fa-lock"></i> Taller finalizado: un solo intento por estudiante. Tu docente puede eliminar tu registro para habilitar un nuevo intento.</p>
+   <div class="review-section" id="reviewSection">
+    <div class="review-title"><i class="fa-solid fa-clipboard-list"></i> Revisión detallada</div>
+    <div id="reviewList"></div>
+   </div>
+  </div>
+ </section>
+</div>
+
+<!-- Modal de confirmación reemplaza confirm() nativo -->
+<div class="modal" id="confirmModal">
+ <div class="modal-box">
+  <div class="modal-title" id="confirmTitle">Confirmar</div>
+  <div class="modal-text" id="confirmText">¿Estás seguro?</div>
+  <div class="modal-actions">
+   <button class="btn btn-ghost" id="confirmCancel">Cancelar</button>
+   <button class="btn btn-primary" id="confirmOk">Aceptar</button>
+  </div>
+ </div>
+</div>
+
+<!-- Modal de alerta reemplaza alert() nativo -->
+<div class="modal" id="alertModal">
+ <div class="modal-box">
+  <div class="modal-title" id="alertTitle">Aviso</div>
+  <div class="modal-text" id="alertText">Mensaje</div>
+  <div class="modal-actions">
+   <button class="btn btn-primary" id="alertOk">Aceptar</button>
+  </div>
+ </div>
+</div>
+
+<!-- Panel docente -->
+<button class="teacher-panel-opener" id="tpOpener" title="Panel docente (ALT+SHIFT+D)">
+ <i class="fa-solid fa-chalkboard-user"></i>
+</button>
+<div class="teacher-panel-overlay" id="tpOverlay">
+ <div class="teacher-panel">
+  <button class="tp-close" id="tpClose">&times;</button>
+  <h2><i class="fa-solid fa-clipboard-list"></i> Panel Docente</h2>
+  <p style="font-size:14px;color:var(--ink-soft);margin-bottom:18px;">Accede con el código para consultar notas, abrir o cerrar el taller, y exportar resultados.</p>
+  <div class="tp-meta">
+   <input type="password" id="tpCode" class="tp-code" placeholder="Código docente (ALT+SHIFT+D)">
+   <button class="tp-btn tp-btn-primary" id="tpLoginBtn"><i class="fa-solid fa-unlock"></i> Acceder</button>
+  </div>
+  <div class="tp-meta" id="tpActions" style="display:none;">
+   <button class="tp-btn tp-btn-ghost" id="tpExportCsv"><i class="fa-solid fa-file-csv"></i> Exportar CSV</button>
+   <button class="tp-btn tp-btn-ghost" id="tpToggleStatus"><i class="fa-solid fa-toggle-on"></i> <span id="tpToggleLabel">Abrir taller</span></button>
+   <button class="tp-btn tp-btn-danger" id="tpClear"><i class="fa-solid fa-trash"></i> Limpiar notas</button>
+   <span class="tp-score" id="tpCount" style="font-size:13px;color:var(--muted);margin-left:auto"></span>
+  </div>
+  <div class="tp-filter" id="tpFilter" style="display:none;">
+   <select id="tpCourseFilter"><option value="">Todos los cursos</option></select>
+   <input type="text" id="tpSearch" placeholder="Buscar estudiante...">
+  </div>
+  <div class="tp-results" id="tpResults">
+   <div class="tp-empty">Ingresa el código para ver las notas de los estudiantes.</div>
+  </div>
+ </div>
+</div>
+
+<script>
+/* ============================================================
+ BANCO DE 38 PREGUNTAS — TEORÍA DE LA ADMINISTRACIÓN (SEMANA 2)
+ Basado estrictamente en las diapositivas del taller.
+ ============================================================ */
+const QUESTION_BANK = [
+ {
+  topic: "Proceso administrativo",
+  concept: "Planear",
+  syllabus: "Robbins y Coulter",
+  question: "En el proceso administrativo PODC, la función de planear consiste principalmente en:",
+  options: [
+   "Definir metas, estrategias y planes para guiar la organización.",
+   "Organizar la estructura y asignar recursos.",
+   "Motivar, liderar y comunicar a los colaboradores durante la operación.",
+   "Medir resultados, compararlos con las metas y corregir las desviaciones."
+  ],
+  answer: 0,
+  explanation: "Planear implica establecer metas, definir estrategias y elaborar planes para coordinar las actividades. Organizar, dirigir y controlar son las otras funciones del proceso administrativo."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Organizar",
+  syllabus: "Robbins y Coulter",
+  question: "Cuando un gerente define quién hace qué tarea y cómo se agrupan los recursos, está ejecutando la función de:",
+  options: [
+   "Organizar, porque diseña la estructura y asigna responsabilidades.",
+   "Planear, porque fija las metas que deben cumplirse.",
+   "Dirigir, porque guía a las personas en el cumplimiento de sus funciones.",
+   "Controlar, porque verifica que cada área cumpla sus objetivos."
+  ],
+  answer: 0,
+  explanation: "Organizar es la función que determina la estructura, asigna tareas, delega autoridad y coordina recursos para que el trabajo se realice."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Dirigir",
+  syllabus: "Robbins y Coulter",
+  question: "La función de dirigir en el proceso administrativo se caracteriza porque el gerente debe:",
+  options: [
+   "Motivar, liderar y comunicar a los colaboradores para ejecutar el plan.",
+   "Medir el desempeño, aplicar sanciones y corregir desviaciones de las metas.",
+   "Diseñar la estructura organizacional y definir los puestos de trabajo.",
+   "Establecer objetivos a largo plazo y preparar los presupuestos anuales."
+  ],
+  answer: 0,
+  explanation: "Dirigir implica motivar, liderar, comunicar y orientar a las personas para que trabajen hacia el cumplimiento de los objetivos."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Controlar",
+  syllabus: "Robbins y Coulter",
+  question: "Un gerente que mide el desempeño real, lo compara con las metas establecidas y toma acciones correctivas está aplicando la función de:",
+  options: [
+   "Controlar, porque evalúa resultados y corrige desviaciones.",
+   "Planear, porque define los estándares que se usarán en la comparación.",
+   "Organizar, porque asigna responsables para cada indicador.",
+   "Dirigir, porque comunica a los empleados los errores detectados."
+  ],
+  answer: 0,
+  explanation: "Controlar consiste en medir el desempeño, compararlo con los estándares y corregir las desviaciones para que la organización cumpla sus metas."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Secuencia",
+  syllabus: "Robbins y Coulter",
+  question: "Según el modelo PODC, ¿cuál es el orden lógico del proceso administrativo?",
+  options: [
+   "Planear, organizar, dirigir y controlar.",
+   "Organizar primero, planear, controlar y dirigir.",
+   "Dirigir, organizar y planear.",
+   "Controlar, dirigir, planear y organizar el proceso."
+  ],
+  answer: 0,
+  explanation: "El orden clásico del proceso administrativo es planear primero, luego organizar los recursos, dirigir a las personas y finalmente controlar los resultados."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Planear en la práctica",
+  syllabus: "Robbins y Coulter",
+  question: "Una empresa que fija como meta aumentar sus ventas un 15 % el próximo año y diseña una campaña de marketing para lograrlo está en la fase de:",
+  options: [
+   "Planear, porque fija una meta y diseña una estrategia.",
+   "Organizar, porque asigna recursos a la campaña de ventas.",
+   "Dirigir, porque motiva al equipo de ventas.",
+   "Controlar, porque revisa si se alcanzó el incremento."
+  ],
+  answer: 0,
+  explanation: "Fijar metas y diseñar estrategias o planes para alcanzarlas es la función de planear. La organización, dirección y control vienen después."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Controlar en la práctica",
+  syllabus: "Robbins y Coulter",
+  question: "Al final del mes, un supervisor revisa la producción de su área, detecta que está 8 % por debajo de la meta y ajusta el turno de trabajo. Esto es un ejemplo de:",
+  options: [
+   "Controlar, porque mide, compara y corrige el desempeño.",
+   "Planear, porque define nuevos turnos para el siguiente mes.",
+   "Organizar, porque cambia la asignación de personal.",
+   "Dirigir, porque comunica a los trabajadores el ajuste."
+  ],
+  answer: 0,
+  explanation: "Medir la producción real, compararla con la meta y tomar acciones correctivas es la función de controlar."
+ },
+ {
+  topic: "Proceso administrativo",
+  concept: "Dirigir en la práctica",
+  syllabus: "Robbins y Coulter",
+  question: "Un jefe que reúne a su equipo, explica la importancia de un nuevo proyecto y resuelve dudas para mantener el compromiso está ejerciendo principalmente la función de:",
+  options: [
+   "Dirigir, porque comunica, motiva y mantiene el compromiso.",
+   "Planear, porque define el objetivo del proyecto.",
+   "Organizar, porque forma el equipo de trabajo.",
+   "Controlar, porque verifica que el equipo entienda el proyecto."
+  ],
+  answer: 0,
+  explanation: "Comunicar, motivar y mantener el compromiso del equipo son acciones propias de la función de dirigir."
+ },
+ {
+  topic: "Niveles jerárquicos",
+  concept: "Alta dirección",
+  syllabus: "Habilidades de Katz",
+  question: "En los niveles jerárquicos de una organización, la alta dirección se distingue porque:",
+  options: [
+   "Toma decisiones estratégicas y sus habilidades conceptuales pesan más.",
+   "Supervisa directamente a los operarios de la línea de producción diaria.",
+   "Se especializa en tareas técnicas concretas del día a día.",
+   "No necesita habilidades humanas porque no contacta con empleados."
+  ],
+  answer: 0,
+  explanation: "La alta dirección se encarga de la visión estratégica y requiere más habilidades conceptuales, aunque también necesita habilidades humanas y técnicas."
+ },
+ {
+  topic: "Niveles jerárquicos",
+  concept: "Primera línea",
+  syllabus: "Habilidades de Katz",
+  question: "Los supervisores de primera línea requieren principalmente:",
+  options: [
+   "Habilidades técnicas, porque supervisan operaciones concretas.",
+   "Habilidades conceptuales, porque definen la misión.",
+   "Habilidades políticas, porque negocian con proveedores externos.",
+   "Habilidades financieras exclusivas, porque controlan los presupuestos."
+  ],
+  answer: 0,
+  explanation: "La primera línea está en contacto directo con operarios y procesos, por lo que las habilidades técnicas son las más importantes."
+ },
+ {
+  topic: "Habilidades de Katz",
+  concept: "Habilidades humanas",
+  syllabus: "Katz",
+  question: "Las habilidades humanas de un gerente se refieren a su capacidad para:",
+  options: [
+   "Trabajar con personas, comunicarse y motivar al equipo de trabajo.",
+   "Usar herramientas, máquinas y métodos específicos del trabajo.",
+   "Analizar situaciones complejas y ver a la organización como un todo.",
+   "Elaborar presupuestos y estados financieros detallados."
+  ],
+  answer: 0,
+  explanation: "Las habilidades humanas implican interactuar, comunicarse, liderar y motivar a otros. Son importantes en todos los niveles jerárquicos."
+ },
+ {
+  topic: "Habilidades de Katz",
+  concept: "Habilidades conceptuales",
+  syllabus: "Katz",
+  question: "Un gerente que analiza las tendencias del mercado, anticipa cambios y redefine la estrategia de la empresa está usando principalmente:",
+  options: [
+   "Habilidades conceptuales, porque visualiza el conjunto y planifica.",
+   "Habilidades técnicas, porque domina a fondo un área operativa específica.",
+   "Habilidades humanas, porque consulta a su equipo antes de decidir.",
+   "Habilidades de control, porque verifica el cumplimiento de planes."
+  ],
+  answer: 0,
+  explanation: "Las habilidades conceptuales permiten ver la organización en su conjunto, analizar contextos complejos y tomar decisiones estratégicas."
+ },
+ {
+  topic: "Habilidades de Katz",
+  concept: "Distribución por nivel",
+  syllabus: "Katz",
+  question: "¿Cómo varía la importancia relativa de las habilidades conceptuales a medida que se asciende en la jerarquía organizacional?",
+  options: [
+   "Aumenta, porque la alta dirección debe pensar estratégicamente.",
+   "Disminuye, porque los altos cargos ya no necesitan planificar.",
+   "Se mantiene igual en todos los niveles de la organización.",
+   "Desaparece, porque solo importan las habilidades humanas en la cúspide."
+  ],
+  answer: 0,
+  explanation: "Las habilidades conceptuales se vuelven más importantes en la alta dirección, mientras que las técnicas son más relevantes en la primera línea."
+ },
+ {
+  topic: "Habilidades de Katz",
+  concept: "Habilidades técnicas",
+  syllabus: "Katz",
+  question: "Un ingeniero de planta que corrige un fallo en una máquina y enseña al operario el procedimiento adecuado está aplicando principalmente:",
+  options: [
+   "Habilidades técnicas, porque domina el conocimiento especializado.",
+   "Habilidades conceptuales, porque entiende toda la cadena de producción.",
+   "Habilidades humanas, porque enseña al operario con paciencia.",
+   "Habilidades financieras, porque reduce los costos de mantenimiento."
+  ],
+  answer: 0,
+  explanation: "Las habilidades técnicas son el conocimiento especializado sobre herramientas, técnicas, equipos y procesos específicos del trabajo."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol interpersonal",
+  syllabus: "Mintzberg",
+  question: "El gerente que preside una reunión ceremonial, recibe a delegados externos o representa a la empresa en actos públicos está cumpliendo el rol interpersonal de:",
+  options: [
+   "Representante, porque actúa como figura simbólica externa.",
+   "Líder, porque motiva, dirige y evalúa a su equipo de trabajo.",
+   "Enlace, porque conecta distintas áreas de la empresa.",
+   "Vocero, porque transmite información hacia el exterior."
+  ],
+  answer: 0,
+  explanation: "El rol de representante es el que cumple el gerente cuando actúa como figura simbólica o ceremonial de la organización ante agentes externos."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol interpersonal",
+  syllabus: "Mintzberg",
+  question: "Dentro de los roles interpersonales de Mintzberg, el rol de líder se manifiesta cuando el gerente:",
+  options: [
+   "Motiva, capacita y orienta a los miembros de su equipo.",
+   "Recopila información interna y externa para detectar problemas.",
+   "Asigna recursos entre distintos proyectos de la organización.",
+   "Negocia acuerdos con proveedores y sindicatos."
+  ],
+  answer: 0,
+  explanation: "El rol de líder implica motivar, dirigir, capacitar y evaluar a los subordinados. Es el rol interpersonal más visible en la gestión diaria."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol informativo",
+  syllabus: "Mintzberg",
+  question: "El gerente que busca constantemente información sobre la competencia, el mercado y el ambiente interno está ejerciendo el rol informativo de:",
+  options: [
+   "Monitor en este contexto según la teoría según el modelo.",
+   "Difusor, porque transmite datos hacia los subordinados.",
+   "Vocero, porque comunica noticias hacia el exterior.",
+   "Emprendedor, porque inicia proyectos de mejora organizacional."
+  ],
+  answer: 0,
+  explanation: "El monitor recopila información interna y externa para entender la organización y su entorno. Difusor y vocero son roles informativos de transmisión."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol informativo",
+  syllabus: "Mintzberg",
+  question: "Cuando un gerente reúne a su equipo para comunicar una nueva política de la empresa, está actuando como:",
+  options: [
+   "Difusor en este contexto según el modelo según la teoría.",
+   "Monitor, porque recopila la información antes de compartirla.",
+   "Vocero, porque habla en nombre de la empresa ante el público.",
+   "Enlace, porque conecta a su equipo con otras áreas."
+  ],
+  answer: 0,
+  explanation: "El difusor transmite información recibida de la alta dirección o del entorno hacia los miembros de su área."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol decisorio",
+  syllabus: "Mintzberg",
+  question: "Un gerente que decide invertir en nuevo equipo tecnológico para mejorar la productividad está cumpliendo el rol decisorio de:",
+  options: [
+   "Emprendedor, porque inicia cambios y proyectos de mejora.",
+   "Manejador de problemas, porque reacciona ante una crisis inesperada.",
+   "Asignador de recursos, porque distribuye el presupuesto.",
+   "Negociador, porque discute precios con el proveedor."
+  ],
+  answer: 0,
+  explanation: "El rol de emprendedor implica identificar oportunidades e iniciar proyectos de cambio o mejora en la organización."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol decisorio",
+  syllabus: "Mintzberg",
+  question: "El gerente que interviene para resolver un conflicto laboral inesperado que amenaza la operación está actuando como:",
+  options: [
+   "Manejador de problemas en este contexto según el modelo.",
+   "Emprendedor, porque busca mejorar las relaciones laborales.",
+   "Asignador de recursos, porque redistribuye el personal.",
+   "Representante, porque simboliza la autoridad de la empresa."
+  ],
+  answer: 0,
+  explanation: "El manejador de problemas reacciona ante conflictos, crisis o perturbaciones inesperadas para restaurar el orden."
+ },
+ {
+  topic: "Roles de Mintzberg",
+  concept: "Rol decisorio",
+  syllabus: "Mintzberg",
+  question: "Decidir cómo distribuir el presupuesto anual entre marketing, producción y tecnología corresponde al rol decisorio de:",
+  options: [
+   "Asignador de recursos, porque distribuye recursos entre áreas.",
+   "Negociador, porque distintas áreas compiten activamente por el presupuesto.",
+   "Emprendedor, porque decide inversiones estratégicas.",
+   "Monitor, porque analiza la información financiera disponible."
+  ],
+  answer: 0,
+  explanation: "El asignador de recursos distribuye recursos financieros, humanos, materiales y de tiempo entre las distintas áreas o proyectos."
+ },
+ {
+  topic: "Estilos de Iowa",
+  concept: "Autocrático",
+  syllabus: "Lewin",
+  question: "En el estilo autocrático de Lewin, las decisiones principales las toma:",
+  options: [
+   "El líder, sin consultar al equipo de trabajo.",
+   "El equipo, mediante discusión y consenso grupal.",
+   "Cada miembro decide por su cuenta.",
+   "Un comité externo contratado por la organización."
+  ],
+  answer: 0,
+  explanation: "El estilo autocrático centraliza la decisión en el líder, quien decide sin participación del equipo."
+ },
+ {
+  topic: "Estilos de Iowa",
+  concept: "Democrático",
+  syllabus: "Lewin",
+  question: "El estilo democrático de Lewin se caracteriza porque:",
+  options: [
+   "El equipo participa en la discusión y toma la decisión final.",
+   "El líder impone las decisiones sin explicar los motivos al grupo.",
+   "Cada persona trabaja sola sin coordinación con los demás.",
+   "No hay objetivos claros y cada uno decide su propio ritmo."
+  ],
+  answer: 0,
+  explanation: "El estilo democrático fomenta la participación del equipo en la discusión y toma de decisiones, aunque el líder puede retener la decisión final."
+ },
+ {
+  topic: "Estilos de Iowa",
+  concept: "Laissez-faire",
+  syllabus: "Lewin",
+  question: "Un líder que otorga libertad total al grupo, interviene poco y no define objetivos claros está aplicando el estilo:",
+  options: [
+   "Laissez-faire en este contexto según la teoría según el modelo.",
+   "Democrático, porque confía en la participación grupal.",
+   "Autocrático, porque permite que cada uno actúe libremente.",
+   "Situacional, porque se adapta a la madurez del grupo de trabajo."
+  ],
+  answer: 0,
+  explanation: "El estilo laissez-faire ofrece gran libertad al grupo, con mínima intervención del líder. Puede generar falta de dirección si no se gestiona bien."
+ },
+ {
+  topic: "Estilos de Iowa",
+  concept: "Satisfacción",
+  syllabus: "Lewin",
+  question: "Según los estudios de Lewin en Iowa, ¿cuál estilo gerencial generó mayor satisfacción en el grupo?",
+  options: [
+   "Autocrático, porque la urgencia exige decisiones rápidas.",
+   "El autocrático, porque la claridad de la autoridad reduce la ansiedad.",
+   "El laissez-faire, porque la ausencia de control fue valorada.",
+   "Ninguno, porque todos produjeron igual satisfacción."
+  ],
+  answer: 0,
+  explanation: "Los estudios de Lewin mostraron que el estilo democrático generó mayor satisfacción grupal que el autocrático y el laissez-faire."
+ },
+ {
+  topic: "Estilos de Iowa",
+  concept: "Aplicación",
+  syllabus: "Lewin",
+  question: "Un jefe de emergencias médicas que da órdenes precisas y rápidas durante un accidente está usando un estilo:",
+  options: [
+   "Autocrático, porque la urgencia exige decisiones rápidas.",
+   "Democrático, porque consulta a su equipo en tiempo real.",
+   "Laissez-faire, porque confía en la experiencia médica.",
+   "Participativo, porque todos aportan ideas durante la emergencia."
+  ],
+  answer: 0,
+  explanation: "En situaciones de urgencia o alto riesgo, el estilo autocrático permite decisiones rápidas y coordinadas, aunque no sea el más satisfactorio."
+ },
+ {
+  topic: "Estilos de Iowa",
+  concept: "Aplicación",
+  syllabus: "Lewin",
+  question: "Un líder de proyecto creativo que convoca reuniones para elegir juntos la mejor propuesta está usando un estilo:",
+  options: [
+   "Democrático, porque promueve la participación del equipo.",
+   "Autocrático, porque define quién asiste a las reuniones.",
+   "Laissez-faire, porque no impone una solución previa al grupo.",
+   "Técnico, porque se centra en los detalles del proyecto actual."
+  ],
+  answer: 0,
+  explanation: "Convocar al equipo para discutir y elegir propuestas es característico del estilo democrático, que valora la participación."
+ },
+ {
+  topic: "Rejilla gerencial",
+  concept: "Ejes",
+  syllabus: "Blake y Mouton",
+  question: "La rejilla gerencial de Blake y Mouton contrasta dos preocupaciones del líder: el interés por la producción y el interés por:",
+  options: [
+   "Las personas, porque ambas dimensiones definen el estilo.",
+   "Los procesos, porque la eficiencia operativa es central.",
+   "Las ganancias, porque el objetivo principal es la rentabilidad.",
+   "La estructura, porque la organización determina el liderazgo."
+  ],
+  answer: 0,
+  explanation: "La rejilla gerencial mide el interés por la producción en el eje horizontal y el interés por las personas en el eje vertical."
+ },
+ {
+  topic: "Rejilla gerencial",
+  concept: "9,9 Equipo",
+  syllabus: "Blake y Mouton",
+  question: "Según Blake y Mouton, el estilo 9,9 (Equipo) es considerado el mejor porque:",
+  options: [
+   "Integra alto interés por la producción y alto interés por las personas.",
+   "Prioriza las personas por encima de cualquier resultado en este contexto.",
+   "Centra toda la atención en la producción sin importar el equipo.",
+   "Evita conflictos manteniendo un equilibrio moderado entre ambos ejes."
+  ],
+  answer: 0,
+  explanation: "El estilo 9,9 combina alto interés por la producción con alto interés por las personas, logrando compromiso y resultados."
+ },
+ {
+  topic: "Rejilla gerencial",
+  concept: "1,9 Club campestre",
+  syllabus: "Blake y Mouton",
+  question: "El estilo 1,9 de la rejilla gerencial, llamado Club campestre, se caracteriza por:",
+  options: [
+   "Alto interés por las personas y bajo interés por la producción.",
+   "Alto interés por la producción y bajo interés por las personas.",
+   "Bajo interés en ambas dimensiones en este contexto.",
+   "Equilibrio moderado entre personas y producción en este contexto."
+  ],
+  answer: 0,
+  explanation: "El estilo 1,9 prioriza el ambiente laboral y el bienestar del equipo, pero descuida la producción."
+ },
+ {
+  topic: "Rejilla gerencial",
+  concept: "9,1 Tarea",
+  syllabus: "Blake y Mouton",
+  question: "El estilo 9,1 de la rejilla gerencial, llamado Tarea, se distingue porque:",
+  options: [
+   "Prioriza la producción por encima del bienestar de las personas.",
+   "Prioriza las personas por encima de los resultados en este contexto.",
+   "No se preocupa ni por las personas ni por la producción.",
+   "Busca un compromiso intermedio entre ambas dimensiones."
+  ],
+  answer: 0,
+  explanation: "El estilo 9,1 o Tarea enfoca toda su atención en la producción y los resultados, con poca consideración por las personas."
+ },
+ {
+  topic: "Rejilla gerencial",
+  concept: "5,5 Medio camino",
+  syllabus: "Blake y Mouton",
+  question: "El estilo 5,5 de la rejilla gerencial, llamado Medio camino, representa:",
+  options: [
+   "Un equilibrio moderado entre el interés por la producción y las personas.",
+   "La máxima preocupación simultánea por la producción y las personas en este contexto.",
+   "La ausencia total de preocupación por la producción y las personas.",
+   "Un estilo que solo funciona en organizaciones pequeñas en este contexto."
+  ],
+  answer: 0,
+  explanation: "El estilo 5,5 busca un balance intermedio: ni destaca en producción ni en personas, evitando extremos."
+ },
+ {
+  topic: "Rejilla gerencial",
+  concept: "1,1 Empobrecido",
+  syllabus: "Blake y Mouton",
+  question: "El estilo 1,1 de la rejilla gerencial, llamado Empobrecido, se define por:",
+  options: [
+   "No puede ni quiere la tarea, por lo que necesita instrucciones claras.",
+   "No puede pero quiere, por lo que requiere apoyo y persuasión del líder.",
+   "Puede pero no quiere, por lo que necesita participación.",
+   "Puede y quiere, por lo que se le puede delegar la tarea."
+  ],
+  answer: 0,
+  explanation: "El estilo 1,1 o Empobrecido muestra escaso compromiso con la producción y con las personas, representando un liderazgo mínimo."
+ },
+ {
+  topic: "Liderazgo situacional",
+  concept: "E1 Dirigir",
+  syllabus: "Hersey y Blanchard",
+  question: "En el liderazgo situacional de Hersey y Blanchard, el estilo E1 (Dirigir) es adecuado cuando el colaborador es:",
+  options: [
+   "No puede ni quiere realizar la tarea en este contexto.",
+   "No puede pero quiere, por lo que necesita apoyo y persuasión.",
+   "Puede pero no quiere, por lo que necesita participación.",
+   "Puede y quiere, por lo que se le puede delegar."
+  ],
+  answer: 0,
+  explanation: "E1 Dirigir corresponde a R1: colaboradores que no pueden ni quieren, que requieren orientación directa y supervisión alta."
+ },
+ {
+  topic: "Liderazgo situacional",
+  concept: "E2 Persuadir",
+  syllabus: "Hersey y Blanchard",
+  question: "El estilo E2 (Persuadir) se aplica cuando el colaborador:",
+  options: [
+   "No puede pero quiere, por lo que el líder debe orientar y motivar.",
+   "No puede ni quiere, por lo que necesita órdenes estrictas.",
+   "Puede pero no quiere, por lo que el líder debe compartir decisiones.",
+   "Puede y quiere, por lo que el líder solo supervisa resultados."
+  ],
+  answer: 0,
+  explanation: "E2 Persuadir se usa con R2: personas con voluntad pero sin habilidad suficiente, que necesitan dirección y apoyo."
+ },
+ {
+  topic: "Liderazgo situacional",
+  concept: "E3 Participar",
+  syllabus: "Hersey y Blanchard",
+  question: "El estilo E3 (Participar) es el más adecuado cuando el colaborador:",
+  options: [
+   "Puede realizar la tarea pero no quiere en este contexto según el modelo.",
+   "No puede pero quiere aprender, por lo que requiere entrenamiento directo.",
+   "No puede ni quiere, por lo que el líder debe controlar cada paso.",
+   "Puede y quiere, por lo que el líder le transfiere toda la responsabilidad."
+  ],
+  answer: 0,
+  explanation: "E3 Participar se aplica a R3: colaboradores con capacidad pero falta de motivación, que responden mejor si se les involucra en las decisiones."
+ },
+ {
+  topic: "Liderazgo situacional",
+  concept: "E4 Delegar",
+  syllabus: "Hersey y Blanchard",
+  question: "El estilo E4 (Delegar) se utiliza cuando el colaborador:",
+  options: [
+   "Puede y quiere realizar la tarea, por lo que el líder le da autonomía.",
+   "No puede ni quiere, por lo que requiere supervisión constante.",
+   "No puede pero quiere, por lo que necesita capacitación y motivación.",
+   "Puede pero no quiere, por lo que requiere participación en las decisiones."
+  ],
+  answer: 0,
+  explanation: "E4 Delegar corresponde a R4: colaboradores competentes y motivados, a quienes se les puede confiar la tarea con mínima supervisión."
+ },
+ {
+  topic: "Liderazgo situacional",
+  concept: "Madurez",
+  syllabus: "Hersey y Blanchard",
+  question: "La idea central del liderazgo situacional es que el gerente debe:",
+  options: [
+   "Adaptar su estilo según la madurez y disposición del colaborador.",
+   "Siempre usar el estilo democrático para maximizar la satisfacción.",
+   "Elegir un solo estilo y mantenerlo con todo el equipo.",
+   "Aplicar el estilo 9,9 de Blake y Mouton en todas las situaciones."
+  ],
+  answer: 0,
+  explanation: "Hersey y Blanchard sostienen que no existe un estilo único ideal; el líder debe ajustarse al nivel de madurez del seguidor."
+ }
+];
+const STATE = { studentName:"", studentCourse:"", selectedQuestions:[], currentIndex:0, userAnswers:[], answered:false, shuffledAnswers:[], startTime:null, timerId:null, timeLeft:30 };
+const TOTAL_QUESTIONS = 20;
+const TIME_PER_QUESTION = 30;
+
+// === API CONFIG (Railway backend) ===
+const EXAM_ID = 'ulvr-teoadmin-taller2-2026';
+const API_BASE = 'https://evaluador-ensayos-production.up.railway.app/api/quiz/' + EXAM_ID;
+const TEACHER_CODE = 'DOCENTE2026';
+const LS_KEY = 'ulvr_teadmin_taller2_results';
+
+// === ROSTER POR CURSO ===
+const ROSTER = {
+ "Marketing": [
+  "ALVARADO SUAREZ, GENESIS HAYDE",
+  "BAUTISTA PILAMUNGA, JOSSELIN BELINDA",
+  "BETANCOURT MURILLO, JOSSELYN ESTEFANIA",
+  "BRAVO SOLORZANO, ISABELLA FERNANDA",
+  "CABRERA MENDOZA, ARIEL RICARDO",
+  "CANDELARIO LARCO, MAYRA ELIZABETH",
+  "CARRILLO CHOEZ, ERIKA JACQUELINE",
+  "CELI PARRAGA, LUIS MIGUEL",
+  "CEVALLOS ROSERO, GENESIS NICOL",
+  "CRUZ MENDOZA, YULEYSI KAROLAY",
+  "ESPINOZA GARCIA, KARLA FERNANDA",
+  "GARCIA CEVALLOS, JENNIFER ALEXANDRA",
+  "JIMENEZ CEVALLO, JHOJAN SEBASTIAN",
+  "MARTINEZ RENDON, SAMANTHA CAROLINA",
+  "MERIZALDE DE LA CRUZ, MELANY FERNANDA",
+  "MOREIRA CEDEÑO, MELISSA FERNANDA",
+  "MORENO RENDON, CARLOS ALBERTO",
+  "RAMIREZ CEDEÑO, DANIEL ALEJANDRO",
+  "ROSERO RAMIREZ, MELISSA FERNANDA",
+  "SOLORZANO CANDELARIO, JUAN SEBASTIAN",
+  "VERA ZAMBRANO, LUIS ENRIQUE",
+  "VILLAMAR BARCIA, ABRAHAM STEVEN",
+  "YEPEZ GUTIERREZ, JUAN DAVID"
+ ],
+ "Contabilidad y Auditoría": [
+  "ABAD DELGADO, ARLETT ELIANA",
+  "ALMEIDA TORRES, LADY JANINE",
+  "BARZOLA MENDOZA, TANIA ALEXANDRA",
+  "BRIONES CALDERON, MARIA EMILIA",
+  "CAICEDO GAVILANES, DOMENICA ELIZABETH",
+  "CARRERA VERA, STALIN VICENTE",
+  "CELI MORAN, MELANY DAYANARA",
+  "FLORES GONZALEZ, DANIELA ELIZABETH",
+  "GALLEGOS DOMINGUEZ, TANIA NICOLE",
+  "GARCIA JIMENEZ, IVAN JAVIER",
+  "LINO MENDOZA, GRECIA DANIELA",
+  "MACIAS ZAMBRANO, MELISSA DENISSE",
+  "MEDINA MEDINA, ALISSON DAYANARA",
+  "MENDOZA GARCIA, LUIS ALFREDO",
+  "MORAN GARCIA, DANNA LUCERO",
+  "NAVARRO PINCAY, KEVIN JOSE",
+  "PARRAGA PINCAY, CAROLINA ELIZABETH",
+  "PROAÑO CARRERA, ERICKA PAOLA",
+  "TIXA MARQUEZ, NICOLE CAROLINA",
+  "VALLEJO VILLON, MELANY DAYANARA",
+  "VALLEJO VILLON, ANGELA FERNANDA",
+  "VITE FERRIN, LILYAM MARVEL"
+ ],
+ "Comercio Exterior": [
+  "ANGULO VARGAS, KARLA DARLEN",
+  "BALAREZO ENGRACIA, EMANUEL JOSUE",
+  "BALCAZAR BARRERA, KAREN ALEXANDRA",
+  "BALLEN MURILLO, NATHALY STEFANIA",
+  "BRAVO ILLINGWORTH, ANDREA VALENTINA",
+  "CARRILLO GARCIA, SOFIA ELIZABETH",
+  "CEVALLOS VELASCO, JUAN SEBASTIAN",
+  "CORONEL GAVILANES, JORGE ANDRES",
+  "CRUZ CEVALLOS, DARIO FERNANDO",
+  "DE LA CRUZ RIZO, ERICKA GISSELA",
+  "ENCALADA JARRIN, SARA ISABEL",
+  "ESPINOZA ANDRADE, ANAHI NICOLE",
+  "GARCIA JIMENEZ, LUIS FERNANDO",
+  "GONZALEZ ARTEAGA, BRAULIO ENRIQUE",
+  "GRIJALVA VALENCIA, JUAN PABLO",
+  "MACIAS ALVARADO, SHARON DAYANARA",
+  "MIELES CABRERA, PABLO ESTEBAN",
+  "NAVARRO CABRERA, SANDRA FERNANDA",
+  "ORDOÑEZ SUAREZ, DENNIS ALEXANDER",
+  "PALACIOS GARCIA, LUIS FERNANDO",
+  "PINILLA CERCADO, DIANA CAROLINA",
+  "RODRIGUEZ SOLORZANO, TAMARA ISABEL",
+  "SALTOS MARTINEZ, SOFIA ESTEFANIA",
+  "SOLORZANO PEREZ, SARAHI SOFIA",
+  "SUAREZ REYES, ANTHONY JOEL",
+  "TERAN TERAN, MARIA BELEN",
+  "VALDIVIEZO MIELES, VALERIA ELIZABETH",
+  "VALENCIA HERRERA, KARLA FERNANDA",
+  "VERA ZAMORA, NATHALY ESTHER"
+ ]
+};
+
+function shuffle(arr){ const a=[...arr]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+
+function shuffleWithOptions(opts, correctIdx) {
+ const indexed = opts.map((opt, i) => ({ text: opt, originalIdx: i }));
+ const shuffled = shuffle([...indexed]);
+ const newCorrectIdx = shuffled.findIndex(item => item.originalIdx === correctIdx);
+ return { options: shuffled.map(item => item.text), answerIdx: newCorrectIdx };
+}
+
+function showScreen(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById(id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function showModal(title, text, type, onConfirm){
+ const modal = document.getElementById(type === 'confirm' ? 'confirmModal' : 'alertModal');
+ document.getElementById(type === 'confirm' ? 'confirmTitle' : 'alertTitle').textContent = title;
+ document.getElementById(type === 'confirm' ? 'confirmText' : 'alertText').textContent = text;
+ modal.classList.add('active');
+ const close = () => modal.classList.remove('active');
+ if(type === 'confirm'){
+  const okBtn = document.getElementById('confirmOk');
+  const cancelBtn = document.getElementById('confirmCancel');
+  okBtn.onclick = () => { close(); if(onConfirm) onConfirm(); };
+  cancelBtn.onclick = close;
+ } else {
+  document.getElementById('alertOk').onclick = close;
+ }
+}
+
+function printPDF() {
+ const studentName = document.getElementById('resultsName').textContent.trim();
+ document.title = 'Taller 2 — Proceso administrativo y estilos gerenciales — ' + studentName + '.pdf';
+ window.print();
+}
+
+async function checkQuizOpen(){
+ try{
+  const res = await fetch(API_BASE + '/status', { method:'GET', headers:{'Content-Type':'application/json'} });
+  if(!res.ok) return true; // fail-open
+  const data = await res.json();
+  return data.open !== false;
+ }catch(e){ return true; } // fail-open
+}
+
+function updateClosedBanner(isOpen){
+ const banner = document.getElementById('closedBanner');
+ const startBtn = document.getElementById('startBtn');
+ if(isOpen){ banner.classList.remove('show'); }
+ else { banner.classList.add('show'); }
+ if(startBtn) startBtn.disabled = !(isOpen && document.getElementById('studentName').value);
+}
+
+async function refreshQuizStatus(){
+ const isOpen = await checkQuizOpen();
+ updateClosedBanner(isOpen);
+ return isOpen;
+}
+
+function populateRoster(){
+ const course = document.getElementById('courseSelect').value;
+ const nameSelect = document.getElementById('studentName');
+ const startBtn = document.getElementById('startBtn');
+ nameSelect.innerHTML = '<option value="" disabled selected>— Tu nombre —</option>';
+ if(!course){ nameSelect.disabled = true; startBtn.disabled = true; return; }
+ const names = ROSTER[course] || [];
+ names.forEach(name => {
+  const opt = document.createElement('option');
+  opt.value = name;
+  opt.textContent = name;
+  nameSelect.appendChild(opt);
+ });
+ nameSelect.disabled = false;
+ startBtn.disabled = true;
+}
+
+function parseName(fullName){
+ const parts = fullName.split(',').map(s => s.trim());
+ if(parts.length === 2) return { lastName: parts[0], firstName: parts[1] };
+ return { lastName: fullName, firstName: '' };
+}
+
+function startQuiz(){
+ const courseSelect = document.getElementById('courseSelect');
+ const nameSelect = document.getElementById('studentName');
+ const errorEl = document.getElementById('nameError');
+ const startBtn = document.getElementById('startBtn');
+ const course = courseSelect.value;
+ const name = nameSelect.value.trim();
+ if(!course){ errorEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Selecciona tu curso de la lista.'; errorEl.classList.add('show'); courseSelect.focus(); return; }
+ if(!name){ errorEl.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Selecciona tu nombre de la lista para comenzar.'; errorEl.classList.add('show'); nameSelect.focus(); return; }
+ errorEl.classList.remove('show');
+ startBtn.disabled = true;
+ hasCompletedAttempt(name).then(alreadyDone => {
+  if(alreadyDone){
+   errorEl.innerHTML = '<i class="fa-solid fa-lock"></i> <strong>' + name + '</strong> ya completó este taller. Solo se permite un intento por estudiante; tu docente debe eliminar tu registro para habilitar un nuevo intento.';
+   errorEl.classList.add('show');
+   startBtn.disabled = false;
+   return;
+  }
+  checkQuizOpen().then(isOpen => {
+   if(!isOpen){
+    errorEl.innerHTML = '<i class="fa-solid fa-lock"></i> El taller está cerrado. Tu docente debe abrirlo desde el panel docente.';
+    errorEl.classList.add('show');
+    startBtn.disabled = false;
+    return;
+   }
+   STATE.studentName = name;
+   STATE.studentCourse = course;
+   STATE.selectedQuestions = shuffle(QUESTION_BANK).slice(0, TOTAL_QUESTIONS);
+   STATE.currentIndex = 0; STATE.userAnswers = []; STATE.answered = false; STATE.shuffledAnswers = [];
+   STATE.startTime = new Date().toISOString();
+   document.getElementById('studentDisplay').textContent = name;
+   document.getElementById('qTotal').textContent = TOTAL_QUESTIONS;
+   showScreen('quiz-screen');
+   renderQuestion();
+  });
+ });
+}
+
+async function hasCompletedAttempt(name) {
+ const normalized = name.trim().toUpperCase();
+ try {
+  const res = await fetch(API_BASE + '/grades');
+  if (res.ok) {
+   const grades = await res.json();
+   return (grades || []).some(g => {
+    const gn = String(g.studentName || g.name || '').trim().toUpperCase();
+    return gn === normalized;
+   });
+  }
+ } catch(e) { /* API no disponible */ }
+ try {
+  const saved = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+  return saved.some(r => String(r.studentName || '').trim().toUpperCase() === normalized);
+ } catch(e) { return false; }
+}
+
+function startTimer(){
+ if(STATE.timerId) clearInterval(STATE.timerId);
+ STATE.timeLeft = TIME_PER_QUESTION;
+ const fill = document.getElementById('timerFill');
+ const text = document.getElementById('timerText');
+ fill.classList.remove('warning');
+ const tick = () => {
+  text.textContent = STATE.timeLeft + ' s';
+  const pct = (STATE.timeLeft / TIME_PER_QUESTION) * 100;
+  fill.style.width = pct + '%';
+  if(STATE.timeLeft <= 5) fill.classList.add('warning');
+  if(STATE.timeLeft <= 0){
+   clearInterval(STATE.timerId);
+   handleTimeUp();
+  }
+  STATE.timeLeft--;
+ };
+ tick();
+ STATE.timerId = setInterval(tick, 1000);
+}
+
+function stopTimer(){
+ if(STATE.timerId){ clearInterval(STATE.timerId); STATE.timerId = null; }
+}
+
+function handleTimeUp(){
+ if(STATE.answered) return;
+ STATE.answered = true;
+ const q = STATE.selectedQuestions[STATE.currentIndex];
+ const correct = (STATE.shuffledAnswers[STATE.currentIndex] !== undefined && STATE.shuffledAnswers[STATE.currentIndex] !== null) ? STATE.shuffledAnswers[STATE.currentIndex] : q.answer;
+ const options = document.querySelectorAll('.option');
+ options.forEach((btn,i)=>{ btn.disabled=true; if(i===correct) btn.classList.add('correct'); });
+ STATE.userAnswers.push({ selected: null, correct, isCorrect: false, question: q, timeUp: true });
+ const fb = document.getElementById('feedback');
+ fb.className = 'feedback show bad';
+ fb.innerHTML = '<div class="feedback-head"><i class="fa-solid fa-clock"></i> Tiempo agotado</div><div class="feedback-body">Se acabó el tiempo para esta pregunta. La respuesta correcta era la opción ' + String.fromCharCode(65+correct) + '. ' + q.explanation + '</div>';
+ document.getElementById('nextBtn').disabled = false;
+}
+
+function renderQuestion(){
+ STATE.answered = false;
+ const q = STATE.selectedQuestions[STATE.currentIndex];
+ const shuffled = shuffleWithOptions(q.options, q.answer);
+ STATE.shuffledAnswers[STATE.currentIndex] = shuffled.answerIdx;
+ const card = document.getElementById('questionCard');
+ const num = STATE.currentIndex + 1;
+ card.innerHTML = `
+  <div class="q-topic"><span class="dot" style="width:6px;height:6px;border-radius:50%;background:var(--gold);display:inline-block"></span> ${q.topic}</div>
+  <h2 class="question-text">${num}. ${q.question}</h2>
+  <div class="options" id="optionsList">
+  ${shuffled.options.map((opt,i)=>`<button class="option" data-idx="${i}"><span class="option-letter">${String.fromCharCode(65+i)}</span><span class="option-text">${opt}</span></button>`).join('')}
+  </div>
+  <div class="feedback" id="feedback"></div>`;
+ document.getElementById('progressFill').style.width = ((STATE.currentIndex / TOTAL_QUESTIONS) * 100) + '%';
+ document.getElementById('qCurrent').textContent = num;
+ const nextBtn = document.getElementById('nextBtn');
+ nextBtn.disabled = true;
+ nextBtn.innerHTML = (num === TOTAL_QUESTIONS) ? 'Ver resultados <i class="fa-solid fa-flag-checkered"></i>' : 'Siguiente <i class="fa-solid fa-arrow-right"></i>';
+ document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click', handleAnswer));
+ startTimer();
+}
+
+function handleAnswer(e){
+ if(STATE.answered) return;
+ stopTimer();
+ STATE.answered = true;
+ const selected = parseInt(e.currentTarget.dataset.idx);
+ const q = STATE.selectedQuestions[STATE.currentIndex];
+ const correct = (STATE.shuffledAnswers[STATE.currentIndex] !== undefined && STATE.shuffledAnswers[STATE.currentIndex] !== null) ? STATE.shuffledAnswers[STATE.currentIndex] : q.answer;
+ const options = document.querySelectorAll('.option');
+ options.forEach((btn,i)=>{ btn.disabled=true; if(i===correct) btn.classList.add('correct'); else if(i===selected) btn.classList.add('incorrect'); });
+ STATE.userAnswers.push({ selected, correct, isCorrect: selected === correct, question: q });
+ const fb = document.getElementById('feedback');
+ fb.className = 'feedback show ' + (selected === correct ? 'ok' : 'bad');
+ fb.innerHTML = `<div class="feedback-head"><i class="fa-solid ${selected===correct ? 'fa-circle-check' : 'fa-circle-xmark'}"></i>${selected === correct ? 'Respuesta correcta' : 'Respuesta incorrecta'}</div><div class="feedback-body">${q.explanation}</div>`;
+ document.getElementById('nextBtn').disabled = false;
+}
+
+function nextQuestion(){
+ stopTimer();
+ if(STATE.currentIndex < TOTAL_QUESTIONS - 1){ STATE.currentIndex++; renderQuestion(); }
+ else { showResults(); }
+}
+
+function showResults(){
+ stopTimer();
+ const correct = STATE.userAnswers.filter(a=>a.isCorrect).length;
+ const wrong = TOTAL_QUESTIONS - correct;
+ const score10 = (correct / TOTAL_QUESTIONS) * 10;
+ const pct = Math.round((correct/TOTAL_QUESTIONS)*100);
+
+ document.getElementById('resultsName').textContent = STATE.studentName + ' — ' + STATE.studentCourse;
+ document.getElementById('statCorrect').textContent = correct;
+ document.getElementById('statWrong').textContent = wrong;
+ document.getElementById('statPct').textContent = pct + '%';
+
+ const scoreNum = document.getElementById('scoreNum');
+ let current = 0; const target = Math.round(score10 * 10) / 10; const step = target / 40;
+ const interval = setInterval(()=>{ current += step; if(current >= target){ current = target; clearInterval(interval); } scoreNum.textContent = current.toFixed(1).replace('.0',''); }, 30);
+
+ const circumference = 2 * Math.PI * 100;
+ const offset = circumference * (1 - score10/10);
+ setTimeout(()=>{ document.getElementById('scoreRing').style.strokeDashoffset = offset; }, 100);
+
+ const pill = document.getElementById('gradePill');
+ let grade, icon, cls;
+ if(score10 >= 9){ grade='Excelente dominio'; icon='fa-trophy'; cls='grade-excellent'; }
+ else if(score10 >= 7){ grade='Buen desempeño'; icon='fa-thumbs-up'; cls='grade-good'; }
+ else if(score10 >= 5){ grade='Desempeño aceptable'; icon='fa-circle-check'; cls='grade-fair'; }
+ else { grade='Necesitas reforzar: repasa el proceso PODC, los roles de Mintzberg, los estilos de Iowa, la rejilla gerencial y el liderazgo situacional.'; icon='fa-book'; cls='grade-poor'; }
+ pill.className = 'grade-pill ' + cls;
+ pill.innerHTML = `<i class="fa-solid ${icon}"></i> ${grade}`;
+
+ document.getElementById('reviewSection').style.display = 'none';
+ document.getElementById('reviewList').innerHTML = '';
+ showScreen('results-screen');
+
+ // Guardar resultado
+ const parsed = parseName(STATE.studentName);
+ const result = {
+  studentName: STATE.studentName,
+  firstName: parsed.firstName,
+  lastName: parsed.lastName,
+  course: STATE.studentCourse,
+  correct: correct,
+  total: TOTAL_QUESTIONS,
+  score_10: Number(score10.toFixed(1)),
+  pct: pct,
+  answers: STATE.userAnswers.map(a => ({
+   topic: a.question.topic,
+   concept: a.question.concept,
+   selected: a.selected,
+   correct: a.correct,
+   isCorrect: a.isCorrect,
+   timeUp: !!a.timeUp
+  })),
+  timestamp: new Date().toLocaleString('es-EC', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }),
+  startTimestamp: STATE.startTime,
+  endTimestamp: new Date().toISOString(),
+  totalDurationSeconds: Math.round((Date.now() - new Date(STATE.startTime).getTime()) / 1000)
+ };
+ saveResultToAPI(result);
+}
+
+function saveResultToAPI(result) {
+ const payload = {
+  name: result.studentName,
+  firstName: result.firstName,
+  lastName: result.lastName,
+  cls: result.course,
+  score: result.score_10,
+  pct: result.pct,
+  correct: result.correct,
+  total: result.total,
+  answers: result.answers,
+  date: result.timestamp,
+  startTimestamp: result.startTimestamp,
+  endTimestamp: result.endTimestamp,
+  totalDurationSeconds: result.totalDurationSeconds
+ };
+ fetch(API_BASE + '/grades', {
+  method: 'POST',
+  headers: {'Content-Type':'application/json'},
+  body: JSON.stringify(payload)
+ }).catch(e => console.warn('API save failed, fallback localStorage:', e));
+ try {
+  const saved = JSON.parse(localStorage.getItem(LS_KEY) || '[]');
+  saved.push(result);
+  localStorage.setItem(LS_KEY, JSON.stringify(saved));
+ } catch(e) { console.warn('localStorage save failed:', e); }
+}
+
+function toggleReview(){
+ const section = document.getElementById('reviewSection');
+ const list = document.getElementById('reviewList');
+ const visible = section.style.display === 'block';
+ if(!visible){
+  if(list.children.length === 0){
+   if(STATE.userAnswers.length === 0){ list.innerHTML = '<div class="tp-empty">No hay respuestas para revisar.</div>'; }
+   else {
+    STATE.userAnswers.forEach((a, i)=>{
+     const item = document.createElement('div');
+     item.className = 'review-item';
+     const letter = a.selected !== null ? String.fromCharCode(65 + a.selected) : '—';
+     const correctLetter = String.fromCharCode(65 + a.correct);
+     const opts = a.question.options;
+     item.innerHTML = `
+      <div class="ri-q"><strong>${i+1}.</strong> ${a.question.question}</div>
+      <div class="ri-a">
+      <span class="badge ${a.isCorrect?'ok':'bad'}">${a.isCorrect ? 'Correcta' : 'Incorrecta'}</span>
+      Tu respuesta: ${letter}. ${a.selected !== null ? opts[a.selected] : 'Sin respuesta (tiempo agotado)'}
+      ${!a.isCorrect ? ` <span style="color:var(--ok);font-weight:600">· Correcta: ${correctLetter}. ${opts[a.correct]}</span>` : ''}
+      </div>
+      <span class="syllabus-tag"><i class="fa-solid fa-book"></i> ${a.question.concept} · ${a.question.syllabus}</span>`;
+     list.appendChild(item);
+    });
+   }
+  }
+  section.style.display = 'block';
+ } else { section.style.display = 'none'; }
+}
+
+// === PANEL DOCENTE ===
+let teacherRows = [];
+let currentTeacherRows = [];
+
+async function loadResultsFromAPI() {
+ let localResults = [];
+ try { localResults = JSON.parse(localStorage.getItem(LS_KEY) || '[]'); } catch(e) {}
+ try {
+  const res = await fetch(API_BASE + '/grades');
+  if(res.ok){
+   const apiResults = await res.json();
+   const apiNames = new Set(apiResults.map(r => String(r.studentName || r.name || '').trim().toUpperCase()));
+   const localOnly = localResults.filter(r => !apiNames.has(String(r.studentName || '').trim().toUpperCase()));
+   return [...apiResults, ...localOnly];
+  }
+ } catch(e) { console.warn('API load failed, using localStorage:', e); }
+ return localResults;
+}
+
+function normalizeRow(r){
+ const name = r.studentName || r.name || 'Sin nombre';
+ const parsed = parseName(name);
+ return {
+  studentName: name,
+  firstName: r.firstName || parsed.firstName,
+  lastName: r.lastName || parsed.lastName,
+  course: r.course || r.cls || 'Sin curso',
+  correct: r.correct ?? 0,
+  total: r.total ?? TOTAL_QUESTIONS,
+  score_10: r.score ?? r.score_10 ?? 0,
+  pct: r.pct ?? 0,
+  date: r.timestamp || r.date || (r.savedAt ? new Date(r.savedAt).toLocaleString() : 'N/A')
+ };
+}
+
+function renderTeacherTable(rows){
+ const tbody = document.getElementById('tpResults');
+ const countEl = document.getElementById('tpCount');
+ currentTeacherRows = rows;
+ countEl.textContent = rows.length + ' registro(s)';
+ if(rows.length === 0){ tbody.innerHTML = '<div class="tp-empty">No hay notas guardadas aún.</div>'; return; }
+ const html = ['<table class="tp-table"><thead><tr><th>Apellidos</th><th>Nombres</th><th>Curso</th><th>Correctas</th><th>Nota /10</th><th>%</th><th>Fecha</th></tr></thead><tbody>'];
+ rows.forEach(r => {
+  html.push(`<tr><td>${escHtml(r.lastName)}</td><td>${escHtml(r.firstName)}</td><td>${escHtml(r.course)}</td><td>${r.correct}/${r.total}</td><td class="tp-score">${Number(r.score_10).toFixed(1)}</td><td>${r.pct}%</td><td>${escHtml(r.date)}</td></tr>`);
+ });
+ html.push('</tbody></table>');
+ tbody.innerHTML = html.join('');
+}
+
+function escHtml(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function exportResultsCSV(rows) {
+ if(!rows.length){ showModal('Exportar CSV','No hay notas para exportar.','alert'); return; }
+ const header = ["Apellidos","Nombres","Curso","Correctas","Total","Nota /10","Porcentaje","Fecha"];
+ const esc = (v) => { const s = String(v ?? ""); return /[",\n;]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; };
+ const lines = [header.join(",")];
+ for(const r of rows){
+  lines.push([esc(r.lastName), esc(r.firstName), esc(r.course), r.correct, r.total, Number(r.score_10).toFixed(1), r.pct + '%', esc(r.date)].join(","));
+ }
+ const csv = "\uFEFF" + lines.join("\r\n");
+ const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+ const url = URL.createObjectURL(blob);
+ const a = document.createElement('a');
+ a.href = url;
+ a.download = 'notas_taller2_teoria_administracion.csv';
+ a.click();
+ URL.revokeObjectURL(url);
+}
+
+async function loadTeacherPanel(){
+ const results = await loadResultsFromAPI();
+ teacherRows = results.map(normalizeRow);
+ renderTeacherTable(teacherRows);
+ populateCourseFilter();
+}
+
+function populateCourseFilter(){
+ const select = document.getElementById('tpCourseFilter');
+ const courses = [...new Set(teacherRows.map(r => r.course).filter(Boolean))].sort();
+ select.innerHTML = '<option value="">Todos los cursos</option>' + courses.map(c => `<option value="${escHtml(c)}">${escHtml(c)}</option>`).join('');
+}
+
+function filterTeacherRows(){
+ const course = document.getElementById('tpCourseFilter').value;
+ const term = document.getElementById('tpSearch').value.trim().toUpperCase();
+ const filtered = teacherRows.filter(r => {
+  const matchCourse = !course || r.course === course;
+  const matchTerm = !term || r.studentName.toUpperCase().includes(term) || r.lastName.toUpperCase().includes(term) || r.firstName.toUpperCase().includes(term);
+  return matchCourse && matchTerm;
+ });
+ renderTeacherTable(filtered);
+}
+
+async function getQuizStatus(){
+ try{
+  const res = await fetch(API_BASE + '/status');
+  if(!res.ok) return null;
+  const data = await res.json();
+  return data.open !== false;
+ }catch(e){ return null; }
+}
+
+async function updateToggleLabel(){
+ const btn = document.getElementById('tpToggleStatus');
+ const label = document.getElementById('tpToggleLabel');
+ const isOpen = await getQuizStatus();
+ if(isOpen === null){ label.textContent = 'Estado no disponible'; btn.disabled = true; return; }
+ btn.disabled = false;
+ label.textContent = isOpen ? 'Cerrar taller' : 'Abrir taller';
+}
+
+async function toggleQuizStatus(){
+ try{
+  const statusRes = await fetch(API_BASE + '/status');
+  let isOpen = true;
+  if(statusRes.ok){
+   const data = await statusRes.json();
+   isOpen = data.open !== false;
+  }
+  const newOpen = !isOpen;
+  const res = await fetch(API_BASE + '/status', {
+   method: 'POST',
+   headers: {'Content-Type':'application/json'},
+   body: JSON.stringify({open: newOpen})
+  });
+  if(res.ok){
+   await updateToggleLabel();
+   await refreshQuizStatus();
+   showModal('Estado actualizado', newOpen ? 'El taller ahora está abierto.' : 'El taller ahora está cerrado.', 'alert');
+  } else {
+   showModal('Error','No se pudo cambiar el estado del taller.','alert');
+  }
+ }catch(e){
+  showModal('Error','No se pudo contactar al servidor.','alert');
+ }
+}
+
+// === EVENT LISTENERS ===
+document.getElementById('courseSelect').addEventListener('change', () => {
+ populateRoster();
+ refreshQuizStatus();
+});
+document.getElementById('studentName').addEventListener('change', () => {
+ const hasName = !!document.getElementById('studentName').value;
+ const banner = document.getElementById('closedBanner');
+ document.getElementById('startBtn').disabled = !(hasName && !banner.classList.contains('show'));
+ document.getElementById('nameError').classList.remove('show');
+});
+document.getElementById('startBtn').addEventListener('click', startQuiz);
+document.getElementById('nextBtn').addEventListener('click', nextQuestion);
+document.getElementById('quitBtn').addEventListener('click', () => {
+ showModal('Salir del taller','¿Salir del taller? Tu progreso no se guardará.','confirm', () => { stopTimer(); showScreen('welcome-screen'); });
+});
+document.getElementById('reviewBtn').addEventListener('click', toggleReview);
+
+document.addEventListener('keydown', e => {
+ if(!document.getElementById('quiz-screen').classList.contains('active')) return;
+ if(STATE.answered && (e.key === 'Enter' || e.key === ' ')){
+  e.preventDefault();
+  nextQuestion();
+  return;
+ }
+ if(!STATE.answered){
+  let idx = -1;
+  if(['1','2','3','4'].includes(e.key)) idx = parseInt(e.key) - 1;
+  if(['a','b','c','d'].includes(e.key.toLowerCase())) idx = e.key.toLowerCase().charCodeAt(0) - 97;
+  if(idx !== -1 && idx < 4){
+   const btn = document.querySelector(`.option[data-idx="${idx}"]`);
+   if(btn) btn.click();
+  }
+ }
+});
+
+// Panel docente
+document.addEventListener('DOMContentLoaded', function(){
+ const tpOpener = document.getElementById('tpOpener');
+ const tpOverlay = document.getElementById('tpOverlay');
+ if(!tpOpener || !tpOverlay) return;
+
+ document.addEventListener('keydown', e => {
+  if(e.altKey && e.shiftKey && e.key.toLowerCase() === 'd'){
+   e.preventDefault();
+   tpOpener.classList.toggle('active');
+   tpOverlay.classList.toggle('active');
+  }
+ });
+
+ tpOpener.addEventListener('click', () => { tpOpener.classList.add('active'); tpOverlay.classList.add('active'); });
+ document.getElementById('tpClose').addEventListener('click', () => { tpOverlay.classList.remove('active'); tpOpener.classList.remove('active'); });
+
+ document.getElementById('tpLoginBtn').addEventListener('click', async () => {
+  const code = document.getElementById('tpCode').value.trim();
+  if(code === TEACHER_CODE){
+   document.getElementById('tpActions').style.display = 'flex';
+   document.getElementById('tpFilter').style.display = 'flex';
+   document.getElementById('tpResults').innerHTML = '<div style="text-align:center;padding:20px;color:var(--ink-soft);">Cargando notas...</div>';
+   await loadTeacherPanel();
+   await updateToggleLabel();
+  } else {
+   showModal('Código incorrecto','El código ingresado no es válido. Intenta nuevamente.','alert');
+  }
+ });
+
+ document.getElementById('tpExportCsv').addEventListener('click', () => exportResultsCSV(currentTeacherRows));
+ document.getElementById('tpToggleStatus').addEventListener('click', toggleQuizStatus);
+ document.getElementById('tpCourseFilter').addEventListener('change', filterTeacherRows);
+ document.getElementById('tpSearch').addEventListener('input', filterTeacherRows);
+
+ document.getElementById('tpClear').addEventListener('click', async () => {
+  showModal('Limpiar notas','¿Borrar TODAS las notas? Esta acción no se puede deshacer.','confirm', async () => {
+   localStorage.removeItem(LS_KEY);
+   try{
+    await fetch(API_BASE + '/clear', {
+     method: 'POST',
+     headers: {'Content-Type':'application/json'},
+     body: JSON.stringify({action: 'clear_all', examId: EXAM_ID})
+    });
+   }catch(e){ console.warn('API clear failed:', e); }
+   await loadTeacherPanel();
+   document.getElementById('tpResults').innerHTML = '<div class="tp-empty">Notas borradas.</div>';
+  });
+ });
+
+ // Verificar estado del quiz al cargar
+ refreshQuizStatus();
+});
+</script>
+</body>
+</html>
