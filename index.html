@@ -392,7 +392,7 @@ const QUESTION_BANK = [
   question: "En el proceso administrativo PODC, la función de planear consiste principalmente en:",
   options: [
    "Definir metas, estrategias y planes para guiar la organización.",
-   "Organizar la estructura y asignar recursos.",
+   "Organizar la estructura organizacional y asignar recursos a las áreas.",
    "Motivar, liderar y comunicar a los colaboradores durante la operación.",
    "Medir resultados, compararlos con las metas y corregir las desviaciones.",
   ],
@@ -434,7 +434,7 @@ const QUESTION_BANK = [
   question: "Un gerente que mide el desempeño real, lo compara con las metas establecidas y toma acciones correctivas está aplicando la función de:",
   options: [
    "Controlar, porque evalúa resultados y corrige desviaciones.",
-   "Planear, porque define los estándares que se usarán en la comparación.",
+   "Planear, porque define los estándares de comparación.",
    "Organizar, porque asigna responsables para cada indicador.",
    "Dirigir, porque comunica a los empleados los errores detectados.",
   ],
@@ -447,9 +447,9 @@ const QUESTION_BANK = [
   syllabus: "Robbins y Coulter",
   question: "Según el modelo PODC, ¿cuál es el orden lógico del proceso administrativo?",
   options: [
-   "Planear, organizar, dirigir y controlar.",
+   "Planear, organizar, dirigir y controlar el proceso.",
    "Organizar primero, planear, controlar y dirigir.",
-   "Dirigir, organizar y planear.",
+   "Dirigir, organizar y planear las actividades del proceso.",
    "Controlar, dirigir, planear y organizar el proceso.",
   ],
   answer: 0,
@@ -644,9 +644,9 @@ const QUESTION_BANK = [
   question: "Un gerente que decide invertir en nuevo equipo tecnológico para mejorar la productividad está cumpliendo el rol decisorio de:",
   options: [
    "Negociador, porque discute precios con el proveedor.",
-   "Emprendedor, porque inicia cambios y proyectos de mejora.",
-   "Manejador de problemas, porque reacciona ante una crisis inesperada.",
-   "Asignador de recursos, porque distribuye el presupuesto.",
+   "Emprendedor, porque inicia proyectos de mejora.",
+   "Manejador de problemas, porque reacciona ante crisis.",
+   "Asignador de recursos, porque reparte el presupuesto.",
   ],
   answer: 1,
   explanation: "El rol de emprendedor implica identificar oportunidades e iniciar proyectos de cambio o mejora en la organización."
@@ -674,7 +674,7 @@ const QUESTION_BANK = [
    "Emprendedor, porque decide inversiones estratégicas.",
    "Monitor, porque analiza la información financiera disponible.",
    "Asignador de recursos, porque distribuye recursos entre áreas.",
-   "Negociador, porque distintas áreas compiten activamente por el presupuesto.",
+   "Negociador, porque las áreas compiten activamente por el presupuesto.",
   ],
   answer: 2,
   explanation: "El asignador de recursos distribuye recursos financieros, humanos, materiales y de tiempo entre las distintas áreas o proyectos."
@@ -728,7 +728,7 @@ const QUESTION_BANK = [
   question: "Según los estudios de Lewin en Iowa, ¿cuál estilo gerencial generó mayor satisfacción en el grupo?",
   options: [
    "El laissez-faire, porque la ausencia de control directo fue valorada por los miembros del grupo.",
-   "Ninguno, porque la satisfacción depende solo de la personalidad del líder y de su estilo de comunicación interpersonal.",
+   "Ninguno, porque la satisfacción depende solo de la personalidad del líder.",
    "El democrático, porque la participación del equipo en las decisiones aumenta la satisfacción grupal.",
    "El autocrático, porque la claridad de la autoridad y las instrucciones precisas reducen la ansiedad del grupo.",
   ],
@@ -811,10 +811,10 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "El estilo 9,1 de la rejilla gerencial, llamado Tarea, se distingue porque:",
   options: [
-   "Prioriza las personas por encima de los resultados, aunque se descuiden los objetivos.",
+   "Prioriza las personas por encima de los resultados.",
    "No se preocupa ni por las personas ni por la producción.",
    "Busca un compromiso intermedio entre ambas dimensiones.",
-   "Prioriza la producción por encima del bienestar de las personas.",
+   "Prioriza la producción por encima de las personas.",
   ],
   answer: 3,
   explanation: "El estilo 9,1 o Tarea enfoca toda su atención en la producción y los resultados, con poca consideración por las personas."
@@ -825,7 +825,7 @@ const QUESTION_BANK = [
   syllabus: "Blake y Mouton",
   question: "El estilo 5,5 de la rejilla gerencial, llamado Medio camino, representa:",
   options: [
-   "La máxima preocupación simultánea por la producción y las personas, como en el estilo 9,9.",
+   "La máxima preocupación por producción y personas, como en el estilo 9,9.",
    "La ausencia total de preocupación por la producción y las personas, como en el estilo 1,1.",
    "Un estilo que solo funciona en organizaciones pequeñas con poca complejidad.",
    "Un equilibrio moderado entre el interés por la producción y las personas en el liderazgo.",
@@ -918,7 +918,7 @@ const QUESTION_BANK = [
   explanation: "Hersey y Blanchard sostienen que no existe un estilo único ideal; el líder debe ajustarse al nivel de madurez del seguidor."
  }
 ];
-const STATE = { studentName:"", studentCourse:"", selectedQuestions:[], currentIndex:0, userAnswers:[], answered:false, shuffledAnswers:[], startTime:null, timerId:null, timeLeft:30 };
+const STATE = { studentName:"", studentCourse:"", selectedQuestions:[], currentIndex:0, userAnswers:[], answered:false, shuffledAnswers:[], shuffledOptions:[], startTime:null, timerId:null, timeLeft:30 };
 const TOTAL_QUESTIONS = 20;
 const TIME_PER_QUESTION = 30;
 
@@ -1082,11 +1082,11 @@ function printFeedbackPDF(){
   html += '<li class="fb-item"><div class="fb-line">No hay respuestas para revisar.</div></li>';
  } else {
   STATE.userAnswers.forEach((a, i) => {
-   const q = a.question;
-   const selectedLetter = a.selected !== null ? String.fromCharCode(65 + a.selected) : '—';
-   const correctLetter = String.fromCharCode(65 + a.correct);
-   const opts = q.options || [];
-   const selectedText = a.selected !== null ? opts[a.selected] : 'Sin respuesta (tiempo agotado)';
+    const q = a.question;
+    const selectedLetter = a.selected !== null ? String.fromCharCode(65 + a.selected) : '—';
+    const correctLetter = String.fromCharCode(65 + a.correct);
+    const opts = STATE.shuffledOptions[i] || q.options || [];
+    const selectedText = a.selected !== null ? opts[a.selected] : 'Sin respuesta (tiempo agotado)';
    const statusClass = a.isCorrect ? 'ok' : 'bad';
    const statusText = a.isCorrect ? 'Correcta' : 'Incorrecta';
 
@@ -1194,7 +1194,7 @@ function startQuiz(){
    STATE.studentName = name;
    STATE.studentCourse = course;
    STATE.selectedQuestions = shuffle(QUESTION_BANK).slice(0, TOTAL_QUESTIONS);
-   STATE.currentIndex = 0; STATE.userAnswers = []; STATE.answered = false; STATE.shuffledAnswers = [];
+   STATE.currentIndex = 0; STATE.userAnswers = []; STATE.answered = false; STATE.shuffledAnswers = []; STATE.shuffledOptions = [];
    STATE.startTime = new Date().toISOString();
    document.getElementById('studentDisplay').textContent = name;
    document.getElementById('qTotal').textContent = TOTAL_QUESTIONS;
@@ -1260,6 +1260,7 @@ function renderQuestion(){
  const q = STATE.selectedQuestions[STATE.currentIndex];
  const shuffled = shuffleWithOptions(q.options, q.answer);
  STATE.shuffledAnswers[STATE.currentIndex] = shuffled.answerIdx;
+ STATE.shuffledOptions[STATE.currentIndex] = shuffled.options;
  const card = document.getElementById('questionCard');
  const num = STATE.currentIndex + 1;
  card.innerHTML = `
@@ -1384,17 +1385,17 @@ function toggleReview(){
     STATE.userAnswers.forEach((a, i)=>{
      const item = document.createElement('div');
      item.className = 'review-item';
-     const letter = a.selected !== null ? String.fromCharCode(65 + a.selected) : '—';
-     const correctLetter = String.fromCharCode(65 + a.correct);
-     const opts = a.question.options;
-     item.innerHTML = `
-      <div class="ri-q"><strong>${i+1}.</strong> ${a.question.question}</div>
-      <div class="ri-a">
-      <span class="badge ${a.isCorrect?'ok':'bad'}">${a.isCorrect ? 'Correcta' : 'Incorrecta'}</span>
-      Tu respuesta: ${letter}. ${a.selected !== null ? opts[a.selected] : 'Sin respuesta (tiempo agotado)'}
-      ${!a.isCorrect ? ` <span style="color:var(--ok);font-weight:600">· Correcta: ${correctLetter}. ${opts[a.correct]}</span>` : ''}
-      </div>
-      <span class="syllabus-tag"><i class="fa-solid fa-book"></i> ${a.question.concept} · ${a.question.syllabus}</span>`;
+      const letter = a.selected !== null ? String.fromCharCode(65 + a.selected) : '—';
+      const correctLetter = String.fromCharCode(65 + a.correct);
+      const opts = STATE.shuffledOptions[i] || a.question.options;
+      item.innerHTML = `
+       <div class="ri-q"><strong>${i+1}.</strong> ${a.question.question}</div>
+       <div class="ri-a">
+       <span class="badge ${a.isCorrect?'ok':'bad'}">${a.isCorrect ? 'Correcta' : 'Incorrecta'}</span>
+       Tu respuesta: ${letter}. ${a.selected !== null ? opts[a.selected] : 'Sin respuesta (tiempo agotado)'}
+       ${!a.isCorrect ? ` <span style="color:var(--ok);font-weight:600">· Correcta: ${correctLetter}. ${opts[a.correct]}</span>` : ''}
+       </div>
+       <span class="syllabus-tag"><i class="fa-solid fa-book"></i> ${a.question.concept} · ${a.question.syllabus}</span>`;
      list.appendChild(item);
     });
    }
